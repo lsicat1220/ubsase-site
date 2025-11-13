@@ -1,0 +1,30 @@
+Instead of regular CSS, we'll be using Tailwind CSS to style the website.
+
+Essentially, it allows you to do all the common things you would normally do in a 
+separate CSS file inside of HTML (or JSX in this case) by adding classes.
+
+Ex: 
+<div id="example-div" className="text-blue font-bold">
+	<p>This text will be blue and bold</p>
+</div>
+
+Without Tailwind, you'd have to write something like this in a separate file:
+
+#example-div {
+	color: blue
+	font-weight: bold
+}
+
+This will hopefully make learning how to style a website a little easier.
+
+Common Tailwind classes you might want to make use of:
+
+m-[number]: Creates a margin around the item
+p-[number]: Creates space between the content inside the item and the item's border
+text-[color]: Colors the text within the item
+flex flex-col/flex-row: Arranges the content within the item in either a row or a column (Further reading: Flexbox CSS)
+w-[number]: Width of the item
+h-[number]: Height of the item
+
+And much much more. See existing code to see how these classes may be used, 
+and refer to the documentation to figure out classes not covered here.
