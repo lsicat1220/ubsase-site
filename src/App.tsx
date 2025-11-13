@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from "./components/Navbar.tsx";
 import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
+import Leadership from "./pages/Leadership.tsx";
+import Events from "./pages/Events.tsx";
 import Footer from "./components/Footer.tsx";
 //This component is where the entire website resides
 function App() {
@@ -14,6 +16,8 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />}/>
 					<Route path="/about" element={<About />}/>
+					<Route path="/leadership" element={<Leadership />}/>
+					<Route path="/events" element={<Events />}/>
 				</Routes>
 			</BrowserRouter>
 			<Footer />

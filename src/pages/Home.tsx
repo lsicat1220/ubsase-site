@@ -19,6 +19,7 @@ export default function Home() {
 					Society of Asian Scientists and Engineers (SASE) is a national organization dedicated to the advancement of Asian heritage scientists and engineers in education and employment so that they can achieve their full career potential. In addition to professional development, SASE also encourages members to contribute to the enhancement of the communities in which they live.
 					</p>
 				</div>
+				{/*TO DO: change this photo into an automatically playing video (probably an event recap)*/}
 				<div className="w-1/3 h-1/2 shadow-md/50 bg-[url(./assets/oldSASEphoto.jpg)] bg-cover"></div>
 			</section>
 		</>
