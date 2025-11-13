@@ -21,8 +21,8 @@ export default function Navbar() {
 					<Link to="/about">
 					About
 					</Link>
-					<Link to="/contact">
-					Contact
+					<Link to="/leadership">
+					Leadership
 					</Link>
 				</div>
 			</nav>
