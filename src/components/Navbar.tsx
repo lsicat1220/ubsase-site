@@ -24,6 +24,9 @@ export default function Navbar() {
 					<Link to="/leadership">
 					Leadership
 					</Link>
+					<Link to="/example">
+					Example
+					</Link>
 				</div>
 			</nav>
 		</>

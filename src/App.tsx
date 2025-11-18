@@ -4,6 +4,7 @@ import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
 import Leadership from "./pages/Leadership.tsx";
 import Events from "./pages/Events.tsx";
+import Example from "./pages/ExamplePlaceholder.tsx"
 import Footer from "./components/Footer.tsx";
 //This component is where the entire website resides
 function App() {
@@ -14,10 +15,12 @@ function App() {
 				<Navbar />
 				{/*You can imagine that the Routes item below gets replaced with the current url's page*/}
 				<Routes>
+				{/*The path element of the Route tag tells the browser what the link to the page should look like*/}
 					<Route path="/" element={<Home />}/>
 					<Route path="/about" element={<About />}/>
 					<Route path="/leadership" element={<Leadership />}/>
 					<Route path="/events" element={<Events />}/>
+					<Route path="/example" element={<Example />}/>
 				</Routes>
 			</BrowserRouter>
 			<Footer />
