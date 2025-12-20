@@ -7,6 +7,7 @@ This website will serve as a center for SASE members and events.
 ## Tech stack
 
 * Frontend: React + Vite
+* Backend: NodeJS
 * Styling: TailwindCSS
 * Hosting: TBD
 
