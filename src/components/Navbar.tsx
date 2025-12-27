@@ -8,7 +8,7 @@ export default function Navbar() {
 				 In order to get the right layout, we're using a flexbox within a flexbox.
 				 The outside flexbox aligns the logo button to the left and the text buttons to the right using justify-between
 				 The inside flexbox just manages the row layout of the text buttons*/}
-			<nav className="p-4 w-screen bg-white fixed flex flex-row justify-between shadow-md items-center text-sase-blue">
+			<nav className="h-30 p-4 w-screen bg-white fixed flex flex-row justify-between shadow-md items-center text-sase-blue">
 				<Link to="/">
 					<img src="/src/assets/logo-full.png" className="h-20 inline-block m-2" alt="UB Sase Logo"/>
 				</Link>

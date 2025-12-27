@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="w-fill shadow-md">
+		<footer className="border-t border-gray-300 w-fill shadow-md">
 			<div className="text-gray-500 flex h-30 items-center justify-center space-x-5">
 				<div className="mx-12">
 					<h2>Contact us:</h2>	
