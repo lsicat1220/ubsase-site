@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader Portal</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .hidden { display: none; }
+        #error-msg { color: red; font-size: 0.9em; text-align: center; }
+        h2 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+
+    <div id="login-view" class="container">
+        <h2>Leader Login</h2>
+        <input type="text" id="username" placeholder="Username (e.g. Admin)">
+        <input type="password" id="password" placeholder="Password (e.g. password123)">
+        <button onclick="login()">Sign In</button>
+        <p id="error-msg"></p>
+    </div>
+
+    <div id="dashboard-view" class="container hidden">
+        <h2>Welcome, <span id="user-display"></span></h2>
+        <div style="background: #eef; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+            <strong>Your Data:</strong>
+            <ul id="data-list" style="padding-left: 20px;"></ul>
+        </div>
+        <button onclick="getPrivateData()" style="background-color: #28a745; margin-bottom: 5px;">Refresh Data</button>
+        <button onclick="logout()" style="background-color: #dc3545;">Logout</button>
+    </div>
+
+    <script>
+        // CLIENT CONFIG
+        const AUTH_URL = 'http://localhost:4000';
+        const API_URL = 'http://localhost:3000';
+
+        let accessToken = null;
+        let refreshToken = null;
+        let currentUser = null;
+
+        async function login() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            try {
+                const res = await fetch(`${AUTH_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: user, password: pass })
+                });
+
+                if (res.status !== 200) throw new Error("Invalid Login");
+
+                const data = await res.json();
+                accessToken = data.accessToken;
+                refreshToken = data.refreshToken;
+                currentUser = user;
+
+                // Switch UI
+                document.getElementById('login-view').classList.add('hidden');
+                document.getElementById('dashboard-view').classList.remove('hidden');
+                document.getElementById('user-display').innerText = user;
+                
+                // Auto-fetch data
+                getPrivateData();
+
+            } catch (err) {
+                document.getElementById('error-msg').innerText = "Login Failed: Check credentials";
+            }
+        }
+
+        async function getPrivateData() {
+            // 1. Attempt Request
+            let res = await fetch(`${API_URL}/posts`, {
+                headers: { 'Authorization': 'Bearer ' + accessToken }
+            });
+
+            // 2. Intercept 403 (Expired Token)
+            if (res.status === 403) {
+                console.log("Token expired. Refreshing...");
+                const success = await refreshMyToken();
+                if (success) {
+                    // Retry original request
+                    res = await fetch(`${API_URL}/posts`, {
+                        headers: { 'Authorization': 'Bearer ' + accessToken }
+                    });
+                } else {
+                    alert("Session expired. Please login again.");
+                    logout(); // Hard logout if refresh fails
+                    return;
+                }
+            }
+
+            const posts = await res.json();
+            const list = document.getElementById('data-list');
+            list.innerHTML = ''; // Clear list
+            posts.forEach(p => {
+                const li = document.createElement('li');
+                li.innerText = p.title;
+                list.appendChild(li);
+            });
+        }
+
+        async function refreshMyToken() {
+            if (!refreshToken) return false;
+            try {
+                const res = await fetch(`${AUTH_URL}/token`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: refreshToken })
+                });
+                if (res.status === 200) {
+                    const data = await res.json();
+                    accessToken = data.accessToken;
+                    return true;
+                }
+            } catch (e) { console.error(e); }
+            return false;
+        }
+
+        async function logout() {
+            if (refreshToken) {
+                await fetch(`${AUTH_URL}/logout`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: refreshToken })
+                });
+            }
+            // Reset State
+            accessToken = null;
+            refreshToken = null;
+            document.getElementById('dashboard-view').classList.add('hidden');
+            document.getElementById('login-view').classList.remove('hidden');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
+</body>
+</html>
