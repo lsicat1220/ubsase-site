@@ -4,7 +4,7 @@ interface Props {
 	input?: string;
 }
 export default function Example({input}: Props) {
-	var message: string;
+	let message: string;
 	if (input) {
 		message = input;
 	} else {
