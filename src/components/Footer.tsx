@@ -18,7 +18,7 @@ export default function Footer() {
 						<img src="/src/assets/insta-logo.svg" className="h-7"/>
 					</div>
 				</a>
-				<img src="/src/assets/logo.png" className="mx-5 h-20"/>
+				{/* <img src="/src/assets/sase-logo/logo.svg" className="mx-5 h-20"/> */}
 			</div>
 			<div className="border-t border-gray-300 p-10">
 				<p className="text-gray-400 text-center">© 2025 UB SASE. All rights reserved.</p>
