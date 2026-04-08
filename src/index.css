@@ -1,10 +1,12 @@
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 @import "tailwindcss";
 
-@theme {
-	--color-sase-blue: #026CB1;
+/* Specify Colors in root and theme as seen below*/
+:root {
+	font-family: "Nunito", sans-serif;
+	--sase-blue: #026CB1;
 	--sase-green: #8BC857;
 	--ub-blue: #005BBB;
 	--sase-orange: #FF8200;
@@ -12,6 +14,12 @@
 	--gray-light: #F5F5F5;
 }
 
-* {
-	font-family: "Open Sans";
+@theme {
+	--font-nunito: "Nunito", sans-serif;
+	--color-sase-blue: #026CB1;
+	--color-sase-green: #8BC857;
+	--color-ub-blue: #005BBB;
+	--color-sase-orange: #FF8200;
+	--color-gray-dark: #2E2E2E;
+	--color-gray-light: #F5F5F5;
 }
