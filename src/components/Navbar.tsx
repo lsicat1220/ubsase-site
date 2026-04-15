@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -7,13 +7,22 @@ export default function Navbar() {
     const handleShowNavbar = () => {
         setNavbarVisibility(!navbarIsOpen);
     };
+
     const closeNavbar = () => {
         setNavbarVisibility(false);
     };
 
+    const [isAtTop, setIsAtTop] = useState<boolean>(true);
+
+    useEffect(() => {
+        window.onscroll = () =>{
+            setIsAtTop(window.location.pathname == "/" && window.pageYOffset == 0);
+        }
+    }, []);
+
     return (
         <>
-            <nav className="z-50 fixed space-x-0 bg-gray-dark/95 backdrop-blur-xs w-full flex flex-row justify-between shadow-md items-center text-gray-light">
+            <nav className={`transition-colors h-15 z-50 fixed space-x-0 backdrop-blur-xs w-full flex flex-row justify-between shadow-md items-center text-gray-light ${isAtTop && !navbarIsOpen ? "bg-transparent" : "bg-gray-dark"}`}>
                 <Link onClick={closeNavbar} to="/">
                     <img
                         src="/src/assets/sase-logo/logo-main.svg"
@@ -32,7 +41,7 @@ export default function Navbar() {
                     <Link className="hidden md:block hover:text-sase-blue transition-colors" to="/merch">
                         Merch
                     </Link>
-                    <Link className="block bg-sase-blue px-4 py-1 rounded-l border-2 hover:bg-sase-green transition-colors" to="/contact">
+                    <Link className="block bg-sase-blue px-4 py-1 rounded-[1rem] border-2 hover:bg-sase-green transition-colors" to="/contact">
                         Join Us!
                     </Link>
                     
@@ -52,7 +61,7 @@ export default function Navbar() {
                 </div>
             </nav>
             <div
-                className={`text-lg text-white bg-gray-dark/95  fixed left-0 right-0 z-40 flex flex-col md:hidden backdrop-blur-sm shadow-md transition-all duration-300 ease-in-out overflow-hidden ${navbarIsOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={` text-lg text-white bg-gray-dark/95  fixed left-0 right-0 z-40 flex flex-col md:hidden backdrop-blur-sm shadow-md transition-all duration-300 ease-in-out overflow-hidden ${navbarIsOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
                 style={{ top: "60px" }}
             >
                 <Link
