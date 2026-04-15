@@ -1,3 +1,5 @@
+//The below code defines the input the function takes in
+//All it does is define an interface Props (It needs to be named Props) which the React function takes in.
 interface Props {
 	input?: string;
 }

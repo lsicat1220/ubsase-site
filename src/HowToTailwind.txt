@@ -7,6 +7,7 @@ Ex:
 <div id="example-div" className="text-blue font-bold">
 	<p>This text will be blue and bold</p>
 </div>
+Note the styling is covered solely by the classes that you give the div. No css file needed!
 
 Without Tailwind, you'd have to write something like this in a separate file:
 

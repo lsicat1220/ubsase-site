@@ -1,13 +1,16 @@
+//Remember to import the function of a site here, so that this file knows about it.
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Navbar from "./components/Navbar.tsx";
 import Home from "./pages/Home.tsx";
-import Merch from "./pages/Merch.tsx";
+// import Merch from "./pages/Merch.tsx";
 import Leadership from "./pages/Leadership.tsx";
 import Events from "./pages/Events.tsx";
-import Contact from "./pages/Contact.tsx";
+// import Contact from "./pages/Contact.tsx";
 import Example from "./pages/ExamplePlaceholder.tsx"
 import Footer from "./components/Footer.tsx";
-//This component is where the entire website resides
+//This function is where the entire website resides. 
+//All a React function needs to do is return an object that contains a piece of the website.
+//If you've ever seen HTML, that's essentially what it's returning, but it's slightly different
 function App() {
 	return (
 		<>
@@ -19,11 +22,11 @@ function App() {
 					<Routes>
 					{/*The path element of the Route tag tells the browser what the link to the page should look like*/}
 						<Route path="/" element={<Home />}/>
-						<Route path="/merch" element={<Merch />}/>
+						{/* <Route path="/merch" element={<Merch />}/> */}
 						<Route path="/leadership" element={<Leadership />}/>
 						<Route path="/events" element={<Events />}/>
 						<Route path="/example" element={<Example />}/>
-						<Route path="/contact" element={<Contact />}/>
+						{/* <Route path="/contact" element={<Contact />}/> */}
 					</Routes>
 				</main>
 			</BrowserRouter>

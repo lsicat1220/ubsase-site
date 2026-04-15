@@ -7,7 +7,6 @@ export default function Navbar() {
     const handleShowNavbar = () => {
         setNavbarVisibility(!navbarIsOpen);
     };
-
     const closeNavbar = () => {
         setNavbarVisibility(false);
     };
@@ -41,7 +40,7 @@ export default function Navbar() {
                     <Link className="hidden md:block hover:text-sase-blue transition-colors" to="/merch">
                         Merch
                     </Link>
-                    <Link className="block bg-sase-blue px-4 py-1 rounded-[1rem] border-2 hover:bg-sase-green transition-colors" to="/contact">
+                    <Link className="block bg-sase-blue px-4 py-1 rounded-l border-2 hover:bg-sase-green transition-colors" to="/contact">
                         Join Us!
                     </Link>
                     
@@ -61,7 +60,7 @@ export default function Navbar() {
                 </div>
             </nav>
             <div
-                className={` text-lg text-white bg-gray-dark/95  fixed left-0 right-0 z-40 flex flex-col md:hidden backdrop-blur-sm shadow-md transition-all duration-300 ease-in-out overflow-hidden ${navbarIsOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`text-lg text-white bg-gray-dark/95  fixed left-0 right-0 z-40 flex flex-col md:hidden backdrop-blur-sm shadow-md transition-all duration-300 ease-in-out overflow-hidden ${navbarIsOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
                 style={{ top: "60px" }}
             >
                 <Link
