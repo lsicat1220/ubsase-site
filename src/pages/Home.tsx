@@ -26,7 +26,7 @@ export default function Home() {
 				{/*TO DO: change this photo into an automatically playing video (probably an event recap)*/}
 				<div className="w-1/3 h-1/2 shadow-md/50 bg-[url(./assets/oldSASEphoto.jpg)] bg-cover"></div>
 			</section>
-			<section className="text-white flex flex-col w-screen h-150 bg-white">
+			<section className="text-white flex flex-col w-screen h-150 bg-gray-200">
 			<div className="w-full bg-transparent flex flex-row items-center justify-center p-10">
 			<h1 className="text-black text-bold text-5xl">The Core Pillars</h1>
 			</div>
