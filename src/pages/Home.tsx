@@ -26,13 +26,30 @@ export default function Home() {
 				{/*TO DO: change this photo into an automatically playing video (probably an event recap)*/}
 				<div className="w-1/3 h-1/2 shadow-md/50 bg-[url(./assets/oldSASEphoto.jpg)] bg-cover"></div>
 			</section>
+			<section className="text-white flex flex-col w-screen h-150 bg-white">
+			<div className="w-full bg-transparent flex flex-row items-center justify-center p-10">
+			<h1 className="text-black text-bold text-5xl">The Core Pillars</h1>
+			</div>
+			<div className="w-full bg-blue-500 flex flex-col text-shadow-lg p-15 px-30 space-y-5">
+				<h1 className="text-5xl text-bold">Professional development</h1>
+				<p className="test-2xl">yada yada yada</p>
+			</div>
+			<div className="w-full bg-blue-700 flex flex-col text-shadow-lg p-15 px-30 space-y-5 items-end">
+				<h1 className="text-5xl text-bold">Cultural awareness</h1>
+				<p className="test-2xl">yada yada yada</p>
+			</div>
+			<div className="w-full bg-green-600 flex flex-col text-shadow-lg p-15 px-30 space-y-5">
+				<h1 className="text-5xl text-bold">Community service</h1>
+				<p className="test-2xl">yada yada yada</p>
+			</div>
+			</section>
 			<section className="py-10 ">
 				{/* <div>Our Activities</div> */}
 				{/* <Carousel cards={HomePageActivities}/> */}
 			</section>
 			<section className="text-black flex flex-col items-center">
 				<div className="p-20 w-300 text-center">
-					<h1 className="text-4xl pb-10">Frequently Asked Questions</h1>
+					<h1 className="text-4xl pt-20 pb-10">Frequently Asked Questions</h1>
 					<p className="text-2xl">
 					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 					</p>
