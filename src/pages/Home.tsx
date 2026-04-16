@@ -32,15 +32,15 @@ export default function Home() {
 			</div>
 			<div className="w-full bg-blue-500 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
 				<h1 className="text-5xl text-bold">Professional development</h1>
-				<p className="test-2xl">yada yada yada</p>
+				<p className="test-2xl">To prepare Asian heritage students for success in the transnational, global business world</p>
 			</div>
 			<div className="w-full bg-blue-700 flex flex-col text-shadow-lg p-15 px-40 space-y-5 items-end">
 				<h1 className="text-5xl text-bold">Cultural awareness</h1>
-				<p className="test-2xl">yada yada yada</p>
+				<p className="test-2xl">To promote diversity and tolerance on campuses and in the workplace</p>
 			</div>
 			<div className="w-full bg-green-600 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
 				<h1 className="text-5xl text-bold">Community service</h1>
-				<p className="test-2xl">yada yada yada</p>
+				<p className="test-2xl">To provide opportunities for its members to make contributions to their local communities.</p>
 			</div>
 			</section>
 			<section className="py-10 ">
