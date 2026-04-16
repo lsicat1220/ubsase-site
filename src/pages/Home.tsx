@@ -5,7 +5,7 @@
 export default function Home() {
 	return (
 		<>
-			<div className=" text-white h-screen">
+			<section className="text-white">
 				<div className="bg-[url(./assets/genericUBbg.jpg)] bg-cover py-10 px-10 w-fill h-150 flex items-end justify-start">
 					{/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
 					<div className="text-white h-fit w-fit text-shadow-lg/60">
@@ -15,9 +15,8 @@ export default function Home() {
 							</p>
 					</div>
 				</div>
-			</div>
-			<div className="flex justify-center items-center h-150 text-black overflow-auto">
-				
+			</section>
+			<section className="flex justify-center items-center h-150 text-black overflow-auto">
 				<div className="w-1/2 px-20">
 					<h1 className="font-bold text-4xl pb-4">What we do</h1>
 					<p className="text-2xl">
@@ -26,11 +25,12 @@ export default function Home() {
 				</div>
 				{/*TO DO: change this photo into an automatically playing video (probably an event recap)*/}
 				<div className="w-1/3 h-1/2 shadow-md/50 bg-[url(./assets/oldSASEphoto.jpg)] bg-cover"></div>
-			</div>
-			<div className="py-10 ">
+			</section>
+			<section className="py-10 ">
 				{/* <div>Our Activities</div> */}
 				{/* <Carousel cards={HomePageActivities}/> */}
-			</div>
+			</section>
+			
 		</>
 	)
 }
