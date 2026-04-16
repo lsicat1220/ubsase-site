@@ -30,15 +30,15 @@ export default function Home() {
 			<div className="w-full bg-transparent flex flex-row items-center justify-center p-10">
 			<h1 className="text-black text-bold text-5xl">The Core Pillars</h1>
 			</div>
-			<div className="w-full bg-blue-500 flex flex-col text-shadow-lg p-15 px-30 space-y-5">
+			<div className="w-full bg-blue-500 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
 				<h1 className="text-5xl text-bold">Professional development</h1>
 				<p className="test-2xl">yada yada yada</p>
 			</div>
-			<div className="w-full bg-blue-700 flex flex-col text-shadow-lg p-15 px-30 space-y-5 items-end">
+			<div className="w-full bg-blue-700 flex flex-col text-shadow-lg p-15 px-40 space-y-5 items-end">
 				<h1 className="text-5xl text-bold">Cultural awareness</h1>
 				<p className="test-2xl">yada yada yada</p>
 			</div>
-			<div className="w-full bg-green-600 flex flex-col text-shadow-lg p-15 px-30 space-y-5">
+			<div className="w-full bg-green-600 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
 				<h1 className="text-5xl text-bold">Community service</h1>
 				<p className="test-2xl">yada yada yada</p>
 			</div>
