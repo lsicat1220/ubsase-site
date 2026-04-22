@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "Some SASE Event",
+        "date" : "Apr 22",
+        "image" : "src/assets/placeholder.png"
+    },
+    {
+        "name" : "Another SASE Event",
+        "date" : "Feb 2",
+        "image" : "src/assets/placeholder.png"
+    },
+    {
+        "name" : "Perhaps another another SASE Event",
+        "date" : "Aug 16",
+        "image" : "src/assets/placeholder.png"
+    }
+]
