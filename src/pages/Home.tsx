@@ -3,10 +3,10 @@ import CommunityBonding from "./../data/CommunityBonding.json" with {type: "json
 //WANT TO DO: Make the background a scrolling compilation of event photos
 
 const Hero = (
-    <div className=" text-white h-screen">
-        <div className="bg-[url(./assets/genericUBbg.jpg)] bg-cover py-10 px-10 w-fill h-150 flex items-end justify-start">
+    <div className="text-white">
+        <div className="bg-[url(./assets/genericUBbg.jpg)] bg-cover py-10 px-10 h-150 flex items-end justify-start">
             {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
-            <div className="text-white h-fit w-fit text-shadow-lg/60">
+            <div className="text-white h-fit text-shadow-lg/60">
                 <h1 className="font-bold text-5xl pb-4">
                     Welcome to the SASE website!
                 </h1>
@@ -22,7 +22,7 @@ const Hero = (
 );
 
 const firstdesc = (
-    <section className="flex justify-center items-center h-150 text-black overflow-auto">
+    <section className="flex justify-center items-center h-[95vh] text-black overflow-hidden">
         <div className="w-1/2 px-20">
             <h1 className="font-bold text-4xl pb-4">What we do</h1>
             <p className="text-2xl">
@@ -41,27 +41,35 @@ const firstdesc = (
 );
 
 const pillars = (
-    <section className="text-white flex flex-col w-screen h-150 bg-gray-200">
+    <section className="text-gray-light flex flex-col bg-gray-200 overflow-hidden">
         <div className="w-full bg-transparent flex flex-row items-center justify-center p-10">
-            <h1 className="text-black text-bold text-5xl">The Core Pillars</h1>
+            <h1 className="text-black text-5xl md:text-6xl font-black uppercase tracking-tighter -skew-x-12 leading-none">Core Pillars</h1>
         </div>
-        <div className="w-full bg-blue-500 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
-            <h1 className="text-5xl text-bold">Professional development</h1>
-            <p className="test-2xl">
+        <div className="w-full h-[90vh] bg-blue-500 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
+            <h1 className="text-5xl font-black uppercase tracking-tighter text-bold text-gray-900">Professional development</h1>
+        <p className="text-2xl italic text-gray-900">
+                
                 To prepare Asian heritage students for success in the
                 transnational, global business world
                 
             </p>
             <Carousel events={CommunityBonding}/>
         </div>
-        <div className="w-full bg-blue-700 flex flex-col text-shadow-lg p-15 px-40 space-y-5 items-end">
+        <div className="w-full h-[90vh] bg-blue-700 flex flex-col text-shadow-lg p-15 px-40 space-y-5 items-end overflow-hidden">
             <h1 className="text-5xl text-bold">Cultural awareness</h1>
             <p className="test-2xl">
                 To promote diversity and tolerance on campuses and in the
                 workplace
             </p>
         </div>
-        <div className="w-full bg-green-600 flex flex-col text-shadow-lg p-15 px-40 space-y-5">
+        <div className="w-full h-[90vh] bg-green-600 flex flex-col text-shadow-lg p-15 px-40 space-y-5 overflow-hidden">
+            <h1 className="text-5xl text-bold">Community service</h1>
+            <p className="test-2xl">
+                To provide opportunities for its members to make contributions
+                to their local communities.
+            </p>
+        </div>
+        <div className="w-full h-[90vh] bg-green-700 flex flex-col text-shadow-lg p-15 px-40 space-y-5 overflow-hidden">
             <h1 className="text-5xl text-bold">Community service</h1>
             <p className="test-2xl">
                 To provide opportunities for its members to make contributions
@@ -73,7 +81,7 @@ const pillars = (
 
 const faq = (
     <section className="text-black flex flex-col items-center">
-        <div className="p-20 w-300 text-center">
+        <div className="p-20 text-center">
             <h1 className="text-4xl pt-20 pb-10">Frequently Asked Questions</h1>
             <p className="text-2xl">
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

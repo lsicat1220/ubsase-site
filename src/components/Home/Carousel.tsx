@@ -18,6 +18,8 @@ type Events = {
 	}
 */
 
+// some have it so active hoverable
+
 export default function Carousel({events}: Events) {
 	if (events == null){
 		return;
@@ -29,7 +31,7 @@ export default function Carousel({events}: Events) {
 		)
 	} else {
 		return (
-			<>
+			<div className="w-fill h-50">
 				<div>
 					{items}
 				</div>
@@ -39,7 +41,7 @@ export default function Carousel({events}: Events) {
 				<button className="hover:text-red-700">
 					GO RIGHT
 				</button>
-			</>
+			</div>
 		);
 	}
 	
