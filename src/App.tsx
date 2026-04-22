@@ -1,4 +1,5 @@
 //Remember to import the function of a site here, so that this file knows about it.
+import { useEffect } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Navbar from "./components/Navbar.tsx";
 import Home from "./pages/Home.tsx";
@@ -12,6 +13,9 @@ import Footer from "./components/Footer.tsx";
 //All a React function needs to do is return an object that contains a piece of the website.
 //If you've ever seen HTML, that's essentially what it's returning, but it's slightly different
 function App() {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			{/*This item handles the links of every page of the website*/}

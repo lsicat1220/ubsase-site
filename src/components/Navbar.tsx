@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-    const [navbarIsOpen, setNavbarVisibility] = useState<boolean>(false);
+    // navbarIsOpen deals with the sliding menu
+    const [navbarMenuIsOpen, setNavbarVisibility] = useState<boolean>(false);
 
     const handleShowNavbar = () => {
-        setNavbarVisibility(!navbarIsOpen);
+        setNavbarVisibility(!navbarMenuIsOpen);
     };
     const closeNavbar = () => {
         setNavbarVisibility(false);
@@ -14,14 +15,19 @@ export default function Navbar() {
     const [isAtTop, setIsAtTop] = useState<boolean>(true);
 
     useEffect(() => {
-        window.onscroll = () =>{
-            setIsAtTop(window.location.pathname == "/" && window.pageYOffset == 0);
-        }
-    }, []);
+        const handleScroll = () => {
+            setIsAtTop(window.location.pathname === "/" && window.scrollY < 10);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
+        }, []);
 
     return (
         <>
-            <nav className={`transition-colors h-15 z-50 fixed space-x-0 backdrop-blur-xs w-full flex flex-row justify-between shadow-md items-center text-gray-light ${isAtTop && !navbarIsOpen ? "bg-transparent" : "bg-gray-dark"}`}>
+            <nav className={`transition-colors h-15 z-50 fixed space-x-0 backdrop-blur-xs w-full flex flex-row justify-between shadow-md items-center text-gray-light ${isAtTop && !navbarMenuIsOpen ? "bg-transparent" : "bg-gray-dark"}`}>
                 <Link onClick={closeNavbar} to="/">
                     <img
                         src="/src/assets/sase-logo/logo-main.svg"
@@ -40,7 +46,7 @@ export default function Navbar() {
                     <Link className="hidden md:block hover:text-sase-blue transition-colors" to="/merch">
                         Merch
                     </Link>
-                    <Link className="block bg-sase-blue px-4 py-1 rounded-l border-2 hover:bg-sase-green transition-colors" to="/contact">
+                    <Link className="block bg-sase-blue px-4 py-1 rounded-xl border-2 hover:bg-sase-green transition-colors" to="/contact">
                         Join Us!
                     </Link>
                     
@@ -60,7 +66,7 @@ export default function Navbar() {
                 </div>
             </nav>
             <div
-                className={`text-lg text-white bg-gray-dark/95  fixed left-0 right-0 z-40 flex flex-col md:hidden backdrop-blur-sm shadow-md transition-all duration-300 ease-in-out overflow-hidden ${navbarIsOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`text-lg text-white bg-gray-dark/95  fixed left-0 right-0 z-40 flex flex-col md:hidden backdrop-blur-sm shadow-md transition-all duration-300 ease-in-out overflow-hidden ${navbarMenuIsOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
                 style={{ top: "60px" }}
             >
                 <Link
@@ -92,7 +98,7 @@ export default function Navbar() {
                     Join Us!
                 </Link>
             </div>
-            {navbarIsOpen && (
+            {navbarMenuIsOpen && (
                 <div
                     className="fixed inset-0 z-39 md:hidden"
                     onClick={closeNavbar}
