@@ -1,7 +1,3 @@
-// import Carousel from "./../components/Home/Carousel";
-// import HomePageActivities from "./../data/homePageActivities.json" with {type: "json"};
-
-//WANT TO DO: Make the background a scrolling compilation of event photos
 export default function Home() {
 	return (
 		<>

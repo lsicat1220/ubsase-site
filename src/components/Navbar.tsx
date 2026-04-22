@@ -37,19 +37,28 @@ export default function Navbar() {
                 </Link>
 
                 <div className="text-2xl font-bold justify-right p-4 flex flex-row md:visible items-center space-x-4 h-fit">
-                    <Link className="hidden md:block hover:text-sase-blue transition-colors" to="/events">
+                    <Link
+                        className="hidden md:block hover:text-sase-blue transition-colors"
+                        to="/events"
+                    >
                         Events
                     </Link>
-                    <Link className="hidden md:block hover:text-sase-blue transition-colors" to="/leadership">
+                    <Link
+                        className="hidden md:block hover:text-sase-blue transition-colors"
+                        to="/leadership"
+                    >
                         Leadership
                     </Link>
-                    <Link className="hidden md:block hover:text-sase-blue transition-colors" to="/merch">
+                    <Link
+                        className="hidden md:block hover:text-sase-blue transition-colors"
+                        to="/merch"
+                    >
                         Merch
                     </Link>
                     <Link className="block bg-sase-blue px-4 py-1 rounded-xl border-2 hover:bg-sase-green transition-colors" to="/contact">
                         Join Us!
                     </Link>
-                    
+
                     <div
                         className="menu-button md:hidden hover:cursor-pointer"
                         onClick={handleShowNavbar}
