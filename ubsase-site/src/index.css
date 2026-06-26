@@ -15,3 +15,8 @@
 * {
 	font-family: "Open Sans";
 }
+
+@keyframes fadeInMember {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
