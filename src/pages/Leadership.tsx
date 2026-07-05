@@ -1,4 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
+
+type BoardView = 'default' | 'upper' | 'lower';
 
 interface Member {
   id: number;
@@ -25,22 +27,21 @@ const LOWER_BOARD: Member[] = [
   { id: 12, name: "BRANDAN ZHANG", portrait: "/p/brandon.jpg", interest: "/i/advisor.png" },
 ];
 
-function ProfileCard({ member, position, isSmall }: { member: Member, position: "under" | "side", isSmall?: boolean }) {
+function PopupCard({ member, isSmall }: { member: Member; isSmall?: boolean }) {
   return (
     <div className={`
-      absolute z-[500]
-      ${position === "under" ? "top-full left-10 mt-2" : "right-full top-1/2 -translate-y-1/2 mr-4"}
-      ${isSmall ? "w-32" : "w-44"} p-1 bg-white shadow-[6px_6px_0px_#000] border-2 border-black 
-      transform -skew-x-6 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none
+      absolute z-[500] bottom-full left-1/2 -translate-x-1/2 mb-2
+      ${isSmall ? 'w-32' : 'w-44'} p-1 bg-white shadow-[6px_6px_0px_#000] border-2 border-black
+      -skew-x-6 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none
     `}>
       <div className="bg-black p-2">
         <div className="relative aspect-[3/4] bg-zinc-900 border border-white overflow-hidden">
           <img src={member.portrait} alt={member.name} className="w-full h-full object-cover" />
-          <div className={`${isSmall ? "w-7 h-7" : "w-10 h-10"} absolute bottom-1 right-1 bg-white p-1 border border-black transform rotate-12`}>
-             <img src={member.interest} alt="Interest" className="w-full h-full object-contain" />
+          <div className={`${isSmall ? 'w-7 h-7' : 'w-10 h-10'} absolute bottom-1 right-1 bg-white p-1 border border-black rotate-12`}>
+            <img src={member.interest} alt="interest" className="w-full h-full object-contain" />
           </div>
         </div>
-        <p className="mt-1 text-[7px] font-black italic uppercase text-white text-center tracking-tighter line-height-none">
+        <p className="mt-1 text-[7px] font-black uppercase text-white text-center tracking-tighter">
           {member.name}
         </p>
       </div>
@@ -49,83 +50,127 @@ function ProfileCard({ member, position, isSmall }: { member: Member, position: 
 }
 
 export default function LeadershipSection() {
+  const [view, setView] = useState<BoardView>('default');
+
   return (
-    <section 
-      className="relative w-full h-screen min-h-[700px] bg-white select-none isolate overflow-hidden"
-      style={{
-        backgroundImage: 'url("/background/SASE .png")',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'left top',
-        backgroundSize: '20% 100%',
-        backgroundAttachment: 'fixed',
-        imageRendering: 'crisp-edges'
-      }}
-    >
-      <div className="absolute top-12 right-12 z-20 text-right">
-        <h1 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter transform -skew-x-12 leading-none">
-          <span className="text-cyan-700 drop-shadow-[3px_3px_0px_rgba(0,0,0,1)]">SASE </span>
-          <span className="text-black drop-shadow-[3px_3px_0px_rgba(14,116,144,1)]">LEADERSHIP</span>
-        </h1>
-      </div>
+    <section className="w-full h-screen bg-white flex items-center justify-center overflow-hidden select-none">
+      {/* Container locked to 1440×900 aspect ratio so % overlays map accurately to the drawing */}
+      <div
+        className="relative"
+        style={{ aspectRatio: '1440 / 900', height: '100%', maxWidth: '100%' }}
+      >
+        <img
+          src="/background/SASE design new.png"
+          alt="SASE Leadership"
+          className="w-full h-full"
+          draggable={false}
+        />
 
-      <div className="relative h-full ml-[25%] flex flex-col justify-center gap-[6vh]">
-        {TOP_LEADERSHIP.map((m) => (
-          <div key={m.id} className="group relative flex items-center w-fit hover:z-[9999]">
-            <div className="w-8 md:w-12 h-[3px] bg-black group-hover:bg-cyan-700 transition-all" />
-            <h2 className="ml-3 text-[clamp(1rem,4.5vh,2.5rem)] font-black italic tracking-tighter uppercase text-black group-hover:text-cyan-800 drop-shadow-[2px_2px_0px_rgba(255,255,255,1)] transition-transform group-hover:scale-105">
-              {m.name}
-            </h2>
-            <ProfileCard member={m} position="under" />
-          </div>
-        ))}
-      </div>
+        {/* ── Blue screen overlay ─────────────────────────────────────── */}
+        {/* Approx bounds of the drawn blue phone screen within the 1440×900 canvas */}
+        <div
+          className="absolute flex flex-col items-center justify-center"
+          style={{ left: '22%', top: '11%', width: '54%', height: '72%' }}
+        >
+          {/* Status bar is the top ~16% of the blue area — leave it alone */}
+          <div className="w-full flex flex-col items-center justify-center" style={{ marginTop: '16%', height: '84%' }}>
 
-      <div className="absolute right-[12%] top-1/2 -translate-y-1/2">
-        <div className="relative w-0 h-0 flex items-center justify-center">
-          
-          <div className="absolute w-32 h-32 md:w-48 md:h-48 flex items-center justify-center pointer-events-none z-0 -translate-x-38   
-                -translate-y-2">
-            
-            <img 
-              src="/background/SASE Logo.png" 
-              alt="SASE Logo" 
-              className="w-full h-full object-contain opacity-80"
-            />
-          </div>
-
-          {LOWER_BOARD.map((m, i, arr) => {
-            const angle = (i / arr.length) * 360;
-            return (
-              <div 
-                key={m.id}
-                className="absolute group hover:z-[9999] origin-left"
-                style={{ 
-                  transform: `rotate(${angle}deg)` 
-                }}
-              >
-                <div className="flex items-center" style={{ width: 'min(22vw, 280px)' }}>
-                   {/* Half-branch: uses flex-grow but with a margin-left to create a gap from the center logo */}
-                   <div className="flex-grow ml-[40%] h-[2px] bg-black group-hover:bg-cyan-700 transition-all duration-300" />
-                   
-                   <div style={{ transform: `rotate(-${angle}deg)` }} className="relative shrink-0 transition-transform hover:scale-105 flex items-center">
-                      <ProfileCard member={m} position="side" isSmall />
-                      <span className="text-[9px] md:text-[10px] font-bold tracking-[0.12em] uppercase bg-black text-white px-3 py-1.5 border-l-2 border-white group-hover:border-cyan-700 group-hover:text-cyan-700 whitespace-nowrap shadow-md block cursor-help">
-                        {m.name}
-                      </span>
-                   </div>
-                </div>
+            {/* DEFAULT STATE */}
+            {view === 'default' && (
+              <div className="flex flex-col items-center gap-6">
+                <button
+                  onClick={() => setView('upper')}
+                  className="px-8 py-3 bg-white text-sase-blue font-black text-base uppercase tracking-widest border-2 border-white rounded-full hover:bg-sase-blue hover:text-white transition-all shadow-lg"
+                >
+                  Upper Board
+                </button>
+                <button
+                  onClick={() => setView('lower')}
+                  className="px-8 py-3 bg-white text-sase-blue font-black text-base uppercase tracking-widest border-2 border-white rounded-full hover:bg-sase-blue hover:text-white transition-all shadow-lg"
+                >
+                  Lower Board
+                </button>
               </div>
-            );
-          })}
+            )}
+
+            {/* UPPER BOARD STATE */}
+            {view === 'upper' && (
+              <div className="relative w-full h-full flex flex-col justify-center items-start px-6 gap-5">
+                {TOP_LEADERSHIP.map((m) => (
+                  <div key={m.id} className="group relative flex items-center w-fit hover:z-[9999]">
+                    <div className="w-5 h-[2px] bg-white group-hover:bg-cyan-300 transition-all" />
+                    <h2 className="ml-2 text-[clamp(0.75rem,2vh,1.3rem)] font-black uppercase tracking-tight text-white group-hover:text-cyan-300 transition-colors whitespace-nowrap">
+                      {m.name}
+                    </h2>
+                    <PopupCard member={m} />
+                  </div>
+                ))}
+                <button
+                  onClick={() => setView('default')}
+                  className="absolute bottom-2 right-4 text-[10px] text-white/50 hover:text-white transition-colors uppercase tracking-widest"
+                >
+                  ← Back
+                </button>
+              </div>
+            )}
+
+            {/* LOWER BOARD STATE — "Members Loading..." on screen */}
+            {view === 'lower' && (
+              <div className="relative w-full h-full flex items-center justify-center">
+                <p
+                  className="font-black text-[clamp(1rem,2.5vh,1.6rem)] text-white text-center"
+                  style={{
+                    textShadow: '0 0 12px rgba(255,255,255,0.9), 0 0 24px rgba(255,255,255,0.5)',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  Members Loading...
+                </p>
+                <button
+                  onClick={() => setView('default')}
+                  className="absolute bottom-2 right-4 text-[10px] text-white/50 hover:text-white transition-colors uppercase tracking-widest"
+                >
+                  ← Back
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-10 right-10 text-right border-r-[8px] border-black pr-4 pointer-events-none z-10">
-        <p className="text-[clamp(0.8rem,2.5vh,1.5rem)] font-black italic uppercase tracking-tighter text-black leading-none">
-          "Advancing Professionals<br/>and Leaders"
-        </p>
+        {/* ── Lower board radial — centered on phone ───────────────────── */}
+        {view === 'lower' && (
+          <div
+            className="absolute"
+            style={{ left: '49%', top: '47%', transform: 'translate(-50%, -50%)' }}
+          >
+            <div className="relative w-0 h-0">
+              {LOWER_BOARD.map((m, i, arr) => {
+                const angle = (i / arr.length) * 360;
+                return (
+                  <div
+                    key={m.id}
+                    className="absolute group hover:z-[9999] origin-left"
+                    style={{ transform: `rotate(${angle}deg)` }}
+                  >
+                    <div className="flex items-center" style={{ width: 'min(22vw, 260px)' }}>
+                      <div className="flex-grow ml-[42%] h-[2px] bg-white/70 group-hover:bg-cyan-300 transition-all duration-300" />
+                      <div
+                        style={{ transform: `rotate(-${angle}deg)` }}
+                        className="relative shrink-0 flex items-center hover:scale-105 transition-transform"
+                      >
+                        <PopupCard member={m} isSmall />
+                        <span className="text-[9px] font-bold tracking-[0.12em] uppercase bg-black text-white px-3 py-1.5 border-l-2 border-white group-hover:border-cyan-300 group-hover:text-cyan-300 whitespace-nowrap shadow-md block cursor-help">
+                          {m.name}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
-
     </section>
   );
 }
