@@ -14,6 +14,15 @@
 	--gray-light: #F5F5F5;
 }
 
+body {
+	overflow-x: hidden;
+}
+
+@keyframes fadeInMember {
+	from { opacity: 0; transform: translateX(-8px); }
+	to   { opacity: 1; transform: translateX(0); }
+}
+
 @theme {
 	--font-nunito: "Nunito", sans-serif;
 	--color-sase-blue: #026CB1;
