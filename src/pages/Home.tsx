@@ -1,12 +1,12 @@
 // import Carousel from "./../components/Home/Carousel";
 // import HomePageActivities from "./../data/homePageActivities.json" with {type: "json"};
-
+import videoSrc from "../assets/video.mp4"
 //WANT TO DO: Make the background a scrolling compilation of event photos
 export default function Home() {
 	return (
 		<>
 			<section className="text-white italic">
-				<div className="bg-[url(./assets/genericUBbg.jpg)] bg-cover py-10 px-10 w-fill h-150 flex items-end justify-start">
+				<div className="bg-[url(./assets/newish_group_photo.png)] bg-cover py-10 px-10 w-fill h-150 flex items-end justify-start">
 					{/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
 					<div 
 						className="text-white h-fit w-fit text-shadow-lg/60"
@@ -33,7 +33,14 @@ export default function Home() {
 					</p>
 				</div>
 				{/*TO DO: change this photo into an automatically playing video (probably an event recap)*/}
-				<div className="w-1/3 h-1/2 shadow-md/50 bg-[url(./assets/oldSASEphoto.jpg)] bg-cover"></div>
+				<video
+					autoPlay
+					muted
+					loop
+					playsInline
+					src={videoSrc}
+					className="w-1/3 rounded-2xl"
+				/>
 			</section>
 		</>
 	)
