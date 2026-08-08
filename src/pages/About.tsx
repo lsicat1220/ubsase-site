@@ -20,11 +20,11 @@ export default function About() {
 		<>
 			<section className="p-20">
 				<div className="flex flex-row justify-evenly">
-					<div className="flex flex-col space-y-5 my-5">
+					<div className="flex flex-col space-y-5 my-5 italic">
 						<h1 className="font-bold italic text-black text-5xl">ABOUT US</h1>
 						<p>I'm being forced to write this I don't even go to SASE please help me</p>
 					</div>
-					<div className="bg-red-500 w-100 h-100"></div>
+					<div className="bg-red-500 w-100 h-100">image</div>
 				</div>
 			</section>
 			<section
