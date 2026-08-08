@@ -8,10 +8,9 @@ export default function Navbar() {
     const closeNavbar = () => setNavbarVisibility(false);
 
     const navLinks = [
-        { label: "Events", to: "/events" },
         { label: "About", to: "/about" },
         { label: "Leadership", to: "/leadership" },
-        { label: "Example", to: "/example" },
+        { label: "Events", to: "/events" },
     ];
 
     return (
