@@ -7,8 +7,8 @@ interface AboutCardProps {
 function AboutCard({title, desc, color}: AboutCardProps) {
 	return (
 		<>
-				<div className={"w-screen flex flex-col p-6 space-y-2 items-center " + color}>
-					<h1 className="text-3xl font-bold text-white italic text-shadow-solid">{title}</h1>
+				<div className={"w-screen flex flex-col p-6 space-y-2 items-center italic " + color}>
+					<h1 className="text-3xl font-bold text-white text-shadow-solid">{title}</h1>
 					<p className="text-lg text-white">{desc}</p>
 				</div>
 		</>
