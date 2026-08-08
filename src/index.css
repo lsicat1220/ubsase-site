@@ -14,6 +14,15 @@
 	--gray-light: #F5F5F5;
 }
 
+body {
+	overflow-x: hidden;
+}
+
+@keyframes fadeInMember {
+	from { opacity: 0; transform: translateX(-8px); }
+	to   { opacity: 1; transform: translateX(0); }
+}
+
 @theme {
 	--font-nunito: "Nunito", sans-serif;
 	--color-sase-blue: #026CB1;
@@ -22,4 +31,12 @@
 	--color-sase-orange: #FF8200;
 	--color-gray-dark: #2E2E2E;
 	--color-gray-light: #F5F5F5;
+}
+
+@utility text-shadow-solid {
+	text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+}
+
+@utility s-text-shadow-solid {
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
 }

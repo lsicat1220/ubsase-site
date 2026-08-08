@@ -1,9 +1,9 @@
 export default function Footer() {
 	return (
-		<footer className="border-t border-gray-300 w-fill shadow-md">
+		<footer className="border-t-4 border-black w-fill shadow-md">
 			<div className="text-gray-500 flex h-30 items-center justify-center space-x-5">
 				<div className="mx-12">
-					<h2>Contact us:</h2>	
+					<h2>Contact us:</h2>
 					<p>
 					Email: <a href="mailto:ubsase2@gmail.com"><u>ubsase2@gmail.com</u></a> <br/>
 					</p>
