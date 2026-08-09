@@ -20,7 +20,7 @@ export default function About() {
 				<div className="flex flex-row justify-evenly">
 					<div className="flex flex-col w-2/3 space-y-5 italic">
 						<h1 className="font-bold italic text-black text-5xl">ABOUT US</h1>
-						<p>
+						<p className="text-2xl">
 						The Society of Asian Scientists and Engineers (SASE) is a national organization
 						dedicated to advancing Asian heritage scientists and engineers in both
 						education and employment, empowering them to achieve their full potential while
@@ -78,7 +78,7 @@ export default function About() {
 				<div className="flex flex-row justify-evenly">
 					<div className="flex flex-col w-2/3 space-y-5 my-5 italic">
 						<h1 className="font-bold italic text-black text-5xl">JOIN US</h1>
-						<p>
+						<p className="">
 						What makes SASE different from UB's other engineering and cultural clubs is
 						that we don't ask you to pick a lane. Engineering clubs on campus tend to focus
 						purely on technical growth, and cultural clubs tend to focus purely on
