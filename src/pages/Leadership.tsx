@@ -8,23 +8,41 @@ interface Member {
   portrait: string;
   interest: string;
 }
+// old board (to delete)
+// const TOP_LEADERSHIP: Member[] = [
+//   { id: 1, name: "JESSICA KIM", portrait: "/p/jessica.jpg", interest: "/i/coffee.png" },
+//   { id: 2, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/gaming.png" },
+//   { id: 3, name: "BRENDAN ELLIOT", portrait: "/p/brendan.jpg", interest: "/i/music.png" },
+//   { id: 4, name: "CHANDRA MIKO", portrait: "/p/chandra.jpg", interest: "/i/art.png" },
+// ];
 
+// const LOWER_BOARD: Member[] = [
+//   { id: 5, name: "MATTHEW COLLINS", portrait: "/p/matt.jpg", interest: "/i/code.png" },
+//   { id: 6, name: "DEVON SUKHDEO", portrait: "/p/devon.jpg", interest: "/i/sports.png" },
+//   { id: 7, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/tech.png" },
+//   { id: 8, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/film.png" },
+//   { id: 9, name: "KHINE NYEIN YU", portrait: "/p/khine.jpg", interest: "/i/design.png" },
+//   { id: 10, name: "GARY WANG", portrait: "/p/gary.jpg", interest: "/i/food.png" },
+//   { id: 11, name: "CHRIS TEDIANTO", portrait: "/p/chris.jpg", interest: "/i/culture.png" },
+//   { id: 12, name: "BRANDAN ZHANG", portrait: "/p/brandon.jpg", interest: "/i/advisor.png" },
+// ];
 const TOP_LEADERSHIP: Member[] = [
-  { id: 1, name: "JESSICA KIM", portrait: "/p/jessica.jpg", interest: "/i/coffee.png" },
-  { id: 2, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/gaming.png" },
-  { id: 3, name: "BRENDAN ELLIOT", portrait: "/p/brendan.jpg", interest: "/i/music.png" },
-  { id: 4, name: "CHANDRA MIKO", portrait: "/p/chandra.jpg", interest: "/i/art.png" },
+  { id: 1, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/gaming.png" },
+  { id: 2, name: "DEVON SUKHDEO", portrait: "/p/devon.jpg", interest: "/i/sports.png" },
+  { id: 3, name: "VIVIAN", portrait: "", interest: "" }, // to edit
+  { id: 4, name: "KARYNA", portrait: "", interest: "" }, // to edit
 ];
 
 const LOWER_BOARD: Member[] = [
-  { id: 5, name: "MATTHEW COLLINS", portrait: "/p/matt.jpg", interest: "/i/code.png" },
-  { id: 6, name: "DEVON SUKHDEO", portrait: "/p/devon.jpg", interest: "/i/sports.png" },
-  { id: 7, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/tech.png" },
-  { id: 8, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/film.png" },
-  { id: 9, name: "KHINE NYEIN YU", portrait: "/p/khine.jpg", interest: "/i/design.png" },
-  { id: 10, name: "GARY WANG", portrait: "/p/gary.jpg", interest: "/i/food.png" },
-  { id: 11, name: "CHRIS TEDIANTO", portrait: "/p/chris.jpg", interest: "/i/culture.png" },
-  { id: 12, name: "BRANDAN ZHANG", portrait: "/p/brandon.jpg", interest: "/i/advisor.png" },
+  { id: 5, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/film.png" },
+  { id: 6, name: "KRIS", portrait: "", interest: "" }, // to edit
+  { id: 7, name: "SELENA", portrait: "", interest: "" }, // to edit
+  { id: 8, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/tech.png" },
+  { id: 9, name: "TOBEY", portrait: "", interest: "" }, // to edit
+  { id: 10, name: "LEVI", portrait: "", interest: "" }, // to edit
+  { id: 11, name: "ALINA", portrait: "", interest: "" }, // to edit
+  { id: 12, name: "YOSHITA", portrait: "", interest: "" }, // to edit
+  { id: 13, name: "IVAN", portrait: "", interest: "" }, // to edit
 ];
 
 function BackButton({ onClick }: { onClick: () => void }) {
