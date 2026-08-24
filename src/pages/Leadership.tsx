@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 type BoardView = 'default' | 'upper' | 'lower';
+
+// The whole scene is authored against this fixed canvas, then scaled
+// uniformly to fit any screen so every element stays in proportion.
+const DESIGN_W = 1440;
+const DESIGN_H = 900;
 
 interface Member {
   id: number;
@@ -10,21 +15,21 @@ interface Member {
 }
 
 const TOP_LEADERSHIP: Member[] = [
-  { id: 1, name: "JESSICA KIM", portrait: "/p/jessica.jpg", interest: "/i/coffee.png" },
-  { id: 2, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/gaming.png" },
-  { id: 3, name: "BRENDAN ELLIOT", portrait: "/p/brendan.jpg", interest: "/i/music.png" },
-  { id: 4, name: "CHANDRA MIKO", portrait: "/p/chandra.jpg", interest: "/i/art.png" },
+  { id: 1, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/filler.png" },
+  { id: 2, name: "DEVON SUKDHEO", portrait: "/p/DEVON.jpg", interest: "/i/filler.png" },
+  { id: 3, name: "KARYNA", portrait: "/p/KARYNA.jpg", interest: "/i/filler.png" },
+  { id: 4, name: "VIVIAN", portrait: "/p/filler.jpg", interest: "/i/filler.png" },
 ];
 
 const LOWER_BOARD: Member[] = [
-  { id: 5, name: "MATTHEW COLLINS", portrait: "/p/matt.jpg", interest: "/i/code.png" },
-  { id: 6, name: "DEVON SUKHDEO", portrait: "/p/devon.jpg", interest: "/i/sports.png" },
-  { id: 7, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/tech.png" },
-  { id: 8, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/film.png" },
-  { id: 9, name: "KHINE NYEIN YU", portrait: "/p/khine.jpg", interest: "/i/design.png" },
-  { id: 10, name: "GARY WANG", portrait: "/p/gary.jpg", interest: "/i/food.png" },
-  { id: 11, name: "CHRIS TEDIANTO", portrait: "/p/chris.jpg", interest: "/i/culture.png" },
-  { id: 12, name: "BRANDAN ZHANG", portrait: "/p/brandon.jpg", interest: "/i/advisor.png" },
+  { id: 5, name: "IVAN", portrait: "/p/IVAN.jpg", interest: "/i/filler.png" },
+  { id: 6, name: "TOBEY NGUYEN", portrait: "/p/TOBEY.jpg", interest: "/i/filler.png" },
+  { id: 7, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/filler.png" },
+  { id: 8, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/filler.png" },
+  { id: 9, name: "KRIS", portrait: "/p/kris.jpg", interest: "/i/filler.png" },
+  { id: 10, name: "SELENA", portrait: "/p/selena.jpg", interest: "/i/filler.png" },
+  { id: 11, name: "YOSHITA", portrait: "/p/YOSHITA.jpg", interest: "/i/filler.png" },
+  { id: 12, name: "ALINA", portrait: "/p/ALINA.jpg", interest: "/i/filler.png" },
 ];
 
 function BackButton({ onClick }: { onClick: () => void }) {
@@ -41,12 +46,13 @@ function BackButton({ onClick }: { onClick: () => void }) {
   );
 }
 
-function PopupCard({ member, isSmall }: { member: Member; isSmall?: boolean }) {
+function PopupCard({ member, isSmall, isOpen }: { member: Member; isSmall?: boolean; isOpen?: boolean }) {
   return (
     <div className={`
       absolute z-[500] bottom-full left-1/2 -translate-x-1/2 mb-2
       ${isSmall ? 'w-32' : 'w-44'} p-1 bg-white shadow-[6px_6px_0px_#000] border-2 border-black
-      -skew-x-6 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none
+      -skew-x-6 transition-all duration-300 pointer-events-none
+      ${isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
     `}>
       <div className="bg-black p-2">
         <div className="relative aspect-[3/4] bg-zinc-900 border border-white overflow-hidden">
@@ -65,12 +71,38 @@ function PopupCard({ member, isSmall }: { member: Member; isSmall?: boolean }) {
 
 export default function LeadershipSection() {
   const [view, setView] = useState<BoardView>('default');
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const frameRef = useRef<HTMLElement>(null);
+  const [scale, setScale] = useState(1);
+
+  // Touch devices have no hover, so tapping a member toggles the popup
+  // instead. Any navigation clears whichever popup was pinned open.
+  const changeView = (v: BoardView) => { setView(v); setActiveId(null); };
+  const toggleActive = (id: number) => setActiveId(prev => (prev === id ? null : id));
+
+  // Fit the fixed design canvas inside the available space, keeping aspect
+  // ratio. One uniform scale keeps branches, popups and text in proportion.
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const update = () => {
+      const { width, height } = el.getBoundingClientRect();
+      setScale(Math.min(width / DESIGN_W, height / DESIGN_H));
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   return (
-    <section className="w-full h-screen bg-white flex items-center justify-center select-none">
+    <section
+      ref={frameRef}
+      className="w-full h-screen bg-white overflow-hidden flex items-center justify-center select-none"
+    >
       <div
-        className="relative"
-        style={{ aspectRatio: '1440 / 900', height: '100%', maxWidth: '100%' }}
+        className="relative shrink-0"
+        style={{ width: DESIGN_W, height: DESIGN_H, transform: `scale(${scale})` }}
       >
         <img
           src="/background/SASE design new.png"
@@ -85,7 +117,7 @@ export default function LeadershipSection() {
           style={{ left: '22%', top: '11%', width: '54%', height: '72%' }}
         >
           {/* Circular back arrow — top-left of blue area, visible in upper/lower views */}
-          {view !== 'default' && <BackButton onClick={() => setView('default')} />}
+          {view !== 'default' && <BackButton onClick={() => changeView('default')} />}
 
           {/* Content area below the drawn status bar (~16% of blue height) */}
           <div
@@ -96,7 +128,7 @@ export default function LeadershipSection() {
             {view === 'default' && (
               <div className="flex flex-col items-center gap-5">
                 <button
-                  onClick={() => setView('upper')}
+                  onClick={() => changeView('upper')}
                   className="relative px-10 py-4 bg-white font-black text-xl uppercase tracking-widest border-4 border-white -skew-x-6 shadow-[6px_6px_0px_rgba(0,0,0,0.5)] hover:shadow-[2px_2px_0px_rgba(0,0,0,0.5)] hover:translate-x-1 hover:translate-y-1 transition-all group overflow-hidden"
                   style={{ color: '#026CB1' }}
                 >
@@ -105,7 +137,7 @@ export default function LeadershipSection() {
                   <span className="absolute inset-0 skew-x-6 flex items-center justify-center text-white font-black text-xl uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">Upper Board</span>
                 </button>
                 <button
-                  onClick={() => setView('lower')}
+                  onClick={() => changeView('lower')}
                   className="px-10 py-4 bg-transparent font-black text-xl uppercase tracking-widest border-4 border-white -skew-x-6 shadow-[6px_6px_0px_rgba(0,0,0,0.5)] hover:shadow-[2px_2px_0px_rgba(0,0,0,0.5)] hover:translate-x-1 hover:translate-y-1 transition-all"
                   style={{ color: 'white' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'white'; e.currentTarget.style.color = '#026CB1'; }}
@@ -120,11 +152,15 @@ export default function LeadershipSection() {
             {view === 'upper' && (
               <div className="flex flex-col items-center gap-4">
                 {TOP_LEADERSHIP.map((m) => (
-                  <div key={m.id} className="group relative flex items-center w-fit hover:z-[9999]">
+                  <div
+                    key={m.id}
+                    className={`group relative flex items-center w-fit ${activeId === m.id ? 'z-[9999]' : 'hover:z-[9999]'}`}
+                    onClick={() => toggleActive(m.id)}
+                  >
                     <h2
-                      className="font-black uppercase text-white group-hover:text-cyan-300 transition-colors whitespace-nowrap"
+                      className={`font-black uppercase transition-colors whitespace-nowrap cursor-pointer ${activeId === m.id ? 'text-cyan-300' : 'text-white group-hover:text-cyan-300'}`}
                       style={{
-                        fontSize: 'clamp(1.6rem, 5vh, 3.2rem)',
+                        fontSize: '46px',
                         letterSpacing: '-0.02em',
                         textShadow: '3px 3px 0px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.3)',
                         fontStyle: 'italic',
@@ -134,7 +170,7 @@ export default function LeadershipSection() {
                     >
                       {m.name}
                     </h2>
-                    <PopupCard member={m} />
+                    <PopupCard member={m} isOpen={activeId === m.id} />
                   </div>
                 ))}
               </div>
@@ -151,7 +187,7 @@ export default function LeadershipSection() {
                 <p
                   className="font-black uppercase text-white text-center"
                   style={{
-                    fontSize: 'clamp(1.2rem, 3.5vh, 2rem)',
+                    fontSize: '31px',
                     letterSpacing: '0.15em',
                     fontStyle: 'italic',
                     textShadow: '0 0 16px rgba(255,255,255,1), 0 0 32px rgba(150,220,255,0.8), 0 0 60px rgba(100,180,255,0.5)',
@@ -181,7 +217,7 @@ export default function LeadershipSection() {
                   // Outer div handles rotation only — never touched by animation
                   <div
                     key={m.id}
-                    className="absolute group hover:z-[9999] origin-left"
+                    className={`absolute group origin-left ${activeId === m.id ? 'z-[9999]' : 'hover:z-[9999]'}`}
                     style={{ transform: `rotate(${angle}deg)` }}
                   >
                     {/* Inner div handles fade-in only — no transform here */}
@@ -192,14 +228,15 @@ export default function LeadershipSection() {
                         animationDelay: `${i * 0.2}s`,
                       }}
                     >
-                      <div className="flex items-center" style={{ width: 'min(24vw, 340px)' }}>
-                        <div className="flex-grow ml-[35%] h-[2px] bg-black group-hover:bg-cyan-700 transition-all duration-300" />
+                      <div className="flex items-center" style={{ width: '340px' }}>
+                        <div className={`flex-grow ml-[35%] h-[2px] transition-all duration-300 ${activeId === m.id ? 'bg-cyan-700' : 'bg-black group-hover:bg-cyan-700'}`} />
                         <div
                           style={{ transform: `rotate(-${angle}deg)` }}
-                          className="relative shrink-0 flex items-center hover:scale-105 transition-transform"
+                          className={`relative shrink-0 flex items-center transition-transform cursor-pointer ${activeId === m.id ? 'scale-105' : 'hover:scale-105'}`}
+                          onClick={() => toggleActive(m.id)}
                         >
-                          <PopupCard member={m} isSmall />
-                          <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-white bg-sase-blue px-4 py-2 border-l-2 border-white/50 group-hover:border-cyan-400 group-hover:text-cyan-200 whitespace-nowrap  min-w-[145px] shadow-lg block cursor-help">
+                          <PopupCard member={m} isSmall isOpen={activeId === m.id} />
+                          <span className={`text-[11px] font-bold tracking-[0.1em] uppercase px-4 py-2 border-l-2 whitespace-nowrap min-w-[145px] shadow-lg block text-white bg-sase-blue ${activeId === m.id ? 'border-cyan-400 text-cyan-200' : 'border-white/50 group-hover:border-cyan-400 group-hover:text-cyan-200'}`}>
                             {m.name}
                           </span>
                         </div>
