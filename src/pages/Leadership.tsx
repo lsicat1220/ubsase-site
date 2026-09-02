@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 
 type BoardView = 'default' | 'upper' | 'lower';
 
-// The whole scene is authored against this fixed canvas, then scaled
-// uniformly to fit any screen so every element stays in proportion.
 const DESIGN_W = 1440;
 const DESIGN_H = 900;
 
