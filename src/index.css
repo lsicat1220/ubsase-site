@@ -32,3 +32,11 @@ body {
 	--color-gray-dark: #2E2E2E;
 	--color-gray-light: #F5F5F5;
 }
+
+@utility text-shadow-solid {
+	text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+}
+
+@utility s-text-shadow-solid {
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+}
