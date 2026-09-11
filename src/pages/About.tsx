@@ -1,25 +1,28 @@
-interface AboutCardProps {
-	title: string
-	desc: string
-	color: string
-}
+// interface AboutCardProps {
+// 	title: string
+// 	desc: string
+// 	color: string
+// }
 
-function AboutCard({title, desc, color}: AboutCardProps) {
-	return (
-		<div className={"flex flex-col p-6 space-y-2 items-center italic " + color}>
-			<h1 className="text-3xl font-bold text-white text-shadow-solid">{title}</h1>
-			<p className="font-bold text-lg text-white s-text-shadow-solid">{desc}</p>
-		</div>
-	)
-}
+import { Button } from "../components/Button"
+
+// function AboutCard({title, desc, color}: AboutCardProps) {
+// 	return (
+// 		<div className={"bg-amber-50"+" flex flex-col p-6 space-y-2 items-center italic"}>
+// 			<h1 className="text-3xl font-bold text-white text-shadow-solid">{title}</h1>
+// 			<p className="font-bold text-lg text-white s-text-shadow-solid">{desc}</p>
+// 		</div>
+// 	)
+// }
 
 export default function About() {
 	return (
 		<>
-			<section className="p-20 flex flex-col space-x-5 my-10">
+			<section id="about-us" 
+			className="p-20 flex flex-col space-x-5 my-10">
 				<div className="flex flex-row justify-evenly">
-					<div className="flex flex-col w-2/3 space-y-5 italic">
-						<h1 className="font-bold italic text-black text-5xl">ABOUT US</h1>
+					<div className="flex flex-col w-2/3 space-y-5">
+						<h1 className="font-serif-kaisei text-bold italic text-black text-5xl">ABOUT US</h1>
 						<p className="text-2xl">
 						The Society of Asian Scientists and Engineers (SASE) is a national organization
 						dedicated to advancing Asian heritage scientists and engineers in both
@@ -43,38 +46,43 @@ export default function About() {
 					<div className="bg-red-500 w-100 h-80">image</div>
 				</div>
 			</section>
-			<section
-				className="flex flex-row justify-center border-y-3 pr-20 space-x-10 my-10"
-			>
-				<div className="flex flex-col w-2/3">
-					<AboutCard
-						title="PROFESSIONAL DEVELOPMENT"
-						desc="PREPARE MEMBERS FOR SUCCESS IN THE GLOBAL STEM WORKFORCE THROUGH PROFESSIONAL DEVELOPMENT AND NETWORKING"
-						color="bg-blue-700"
-					/>
-					<AboutCard
-						title="CULTURAL AWARENESS"
-						desc="CELEBRATE AND PROMOTE DIVERSITY ACROSS COLLEGE CAMPUSES AND MODERN WORKPLACES"
-						color="bg-green-500"
-					/>
-					<AboutCard
-						title="COMMUNITY SERVICES"
-						desc="PROVIDE A SUPPORTIVE NETWORK AND ENCOURAGE LOCAL COMMUNITY SERVICE"
-						color="bg-blue-600"
-					/>
-				</div>
-				<div className="w-1/3 py-10 space-y-5">
-					<h1 className="font-bold italic text-black text-5xl">OUR MISSION</h1>
-					<p className="italic">
+			<section id="our-mission"
+			className="flex flex-col bg-blue-100 py-10 px-10">
+				<div className="flex items-center align-middle py-10 
+				lg:px-[clamp(100px,15vw,300px)]
+				md:px-[clamp(50px,5vw,100px)] 
+				min-[900px]:flex-row 
+				p-10 flex-col gap-x-10 gap-y-5">
+					<h1 className="font-serif-kaisei font-bold text-black text-5xl w-fit whitespace-nowrap">OUR MISSION</h1>
+					<p className="font-sans-zenkaku text-lg">
 						We are committed to helping students develop into confident
 						leaders, professionals, and changemakers. Through professional development
 						workshops, networking events, mentorship opportunities, company partnerships,
 						and regional conferences, we provide our members with the skills, experiences,
 						and connections needed to succeed both during college and beyond.
 					</p>
+				</div>	
+				<div id="pillars" className="grid grid-cols-1 min-[900px]:grid-cols-3 p-5 gap-5 justify-center items-center">
+					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-light-blue-500)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent)),url('/Events/DayEboard.webp')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
+						<h1 className="text-4xl font-serif-kaisei font-bold text-white text-shadow-solid">Professional<br/> Development</h1>
+						<p className="font-bold font-sans-zenkaku text-lg text-white s-text-shadow-solid">Prepare members for success in the global stem workforce through professional development and networking</p>
+						<Button txt="Grow More" link="/events"/>
+					</div>
+					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent)),url('/Events/SASEOly.webp')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
+						<h1 className="text-4xl font-serif-kaisei font-bold text-white text-shadow-solid">Cultural<br/>Awareness</h1>
+						<p className="font-bold font-sans-zenkaku text-lg text-white s-text-shadow-solid">Celebrate and promote diversity across college campuses and modern workplaces</p>
+						<Button txt="Learn More" link="/events"/>
+					</div>
+					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-700)_70%,transparent)),url('/Events/LTNight.webp')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
+						<h1 className="text-4xl font-serif-kaisei font-bold text-white text-shadow-solid">Community<br/>Services</h1>
+						<p className="font-bold font-sans-zenkaku text-lg text-white s-text-shadow-solid">Provide a supportive network and encourage local community service</p>
+						<Button txt="Contribute More" link="/events"/>
+					</div>
 				</div>
+				
 			</section>
-			<section className="my-5">
+			<section id="call-to-action"
+			className="my-5">
 				<div className="flex flex-row justify-evenly">
 					<div className="flex flex-col w-2/3 space-y-5 my-5 italic">
 						<h1 className="font-bold italic text-black text-5xl">JOIN US</h1>
