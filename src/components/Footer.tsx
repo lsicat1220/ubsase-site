@@ -21,7 +21,7 @@ export default function Footer() {
 				{/* <img src="/src/assets/sase-logo/logo.svg" className="mx-5 h-20"/> */}
 			</div>
 			<div className="border-t border-gray-300 p-10">
-				<p className="text-gray-400 text-center">© 2025 UB SASE. All rights reserved.</p>
+				<p className="text-gray-400 text-center">© 2026 UB SASE. All rights reserved.</p>
 			</div>
 		</footer>
 	)
