@@ -1,0 +1,30 @@
+[
+    {
+        "id":0,             
+        "name":"event",
+        "date": "date",
+        "time":"time",
+        "location":"place"
+    }, 
+    {
+        "id":1,
+        "name":"Welcome to SASE",
+        "date": "2026-08-27",
+        "time":"7:00 PM",
+        "location":"SU 145"
+    }, 
+    {
+        "id":2,
+        "name":"SASE Welcome to tech",
+        "date": "2026-09-03",
+        "time":"6:00 PM",
+        "location":"SU 215"
+    },
+    {
+        "id":3,             
+        "name":"SASE Olympics",
+        "date": "2026-09-10",
+        "time":"6:00 PM",
+        "location":"Knox 20"
+    }
+]
