@@ -7,6 +7,8 @@
 :root {
 	font-family: "Nunito", sans-serif;
 	--sase-blue: #026CB1;
+	--sase-light-blue: #3898ec;
+	--sase-dark-blue: #141b4d;
 	--sase-green: #8BC857;
 	--ub-blue: #005BBB;
 	--sase-orange: #FF8200;
@@ -24,8 +26,20 @@ body {
 }
 
 @theme {
+
 	--font-nunito: "Nunito", sans-serif;
+	--font-roboto: "Roboto", serif;
+	--font-sans-zenkaku: "Zen Kaku Gothic Antique", sans-serif;
+	--font-serif-kaisei: "Kaisei Decol", serif;
+	
+
 	--color-sase-blue: #026CB1;
+	--color-sase-light-blue-200: #DAECFC;
+	--color-sase-light-blue-400: #3898ec; /* Default sase-light-blue */
+	--color-sase-light-blue-500: #1f8bea;
+	--color-sase-dark-blue-200: #9EA6E6;
+	--color-sase-dark-blue-400: #2E3DB2;
+	--color-sase-dark-blue-700: #141b4d; /* Default sase-dark-blue */
 	--color-sase-green: #8BC857;
 	--color-ub-blue: #005BBB;
 	--color-sase-orange: #FF8200;
@@ -33,10 +47,10 @@ body {
 	--color-gray-light: #F5F5F5;
 }
 
-@utility text-shadow-solid {
+/* @utility text-shadow-solid {
 	text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
 }
 
 @utility s-text-shadow-solid {
 	text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
-}
+} */
