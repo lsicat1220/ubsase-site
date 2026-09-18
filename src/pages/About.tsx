@@ -19,36 +19,54 @@ export default function About() {
 	return (
 		<>
 			<section id="about-us" 
-			className="p-20 flex flex-col space-x-5 my-10">
-				<div className="flex flex-row justify-evenly">
+			className="flex flex-col p-10 bg-gray-50 h-full">
+				<div className="flex items-center align-middle 
+				lg:px-[clamp(100px,15vw,300px)]
+				md:px-[clamp(50px,5vw,100px)] 
+				min-[900px]:flex-row 
+				p-10 flex-col gap-x-[20%] gap-y-5">
+					<div className="flex flex-col gap-y-5">
+						<h1 className="font-serif-kaisei font-bold text-sase-light-blue-400 text-5xl w-fit whitespace-nowrap">About Us</h1>
+						<p className="font-sans-zenkaku text-lg">
+							The Society of Asian Scientists and Engineers (SASE) is a national organization
+							dedicated to advancing Asian heritage scientists and engineers in both
+							education and employment, empowering them to achieve their full potential while
+							making meaningful contributions to their communities. As the University at
+							Buffalo chapter, we bring that mission to campus by <text className=" font-bold">creating a space where
+							students can grow professionally, build lasting connections, and support one
+							another throughout their academic journey.</text>
+
+							<br/><br/>
+							As part of the national SASE network, we connect UB students to a
+							community that spans academia, industry, and professional
+							development, while celebrating the cultural identities that shape
+							our members' experiences. We welcome students of all majors,
+							backgrounds, and years. You don't need to be an engineer or a
+							scientist to find a home here. What unites us is a shared
+							commitment to community, growth, and representation in STEM
+							fields.
+						</p>
+					</div>
+					{/* <img
+						src="/background/SASE Logo.png"
+						alt="SASE Logo"
+						className="w-28 h-28 object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.7)] rounded-xl"
+					/>	 */}
+				</div>	
+				
+				{/* <div className="flex flex-row justify-evenly">
 					<div className="flex flex-col w-2/3 space-y-5">
 						<h1 className="font-serif-kaisei text-bold italic text-black text-5xl">ABOUT US</h1>
 						<p className="text-2xl">
-						The Society of Asian Scientists and Engineers (SASE) is a national organization
-						dedicated to advancing Asian heritage scientists and engineers in both
-						education and employment, empowering them to achieve their full potential while
-						making meaningful contributions to their communities. As the University at
-						Buffalo chapter, we bring that mission to campus by creating a space where
-						students can grow professionally, build lasting connections, and support one
-						another throughout their academic journey.
-
-						<br/><br/>
-						As part of the national SASE network, we connect UB students to a
-						community that spans academia, industry, and professional
-						development, while celebrating the cultural identities that shape
-						our members' experiences. We welcome students of all majors,
-						backgrounds, and years. You don't need to be an engineer or a
-						scientist to find a home here. What unites us is a shared
-						commitment to community, growth, and representation in STEM
-						fields.
+						
 						</p>
 					</div>
 					<div className="bg-red-500 w-100 h-80">image</div>
-				</div>
+				</div> */}
 			</section>
 			<section id="our-mission"
-			className="flex flex-col bg-blue-100 py-10 px-10">
-				<div className="flex items-center align-middle py-10 
+			className="flex flex-col bg-blue-100 p-10">
+				<div className="flex items-center align-middle 
 				lg:px-[clamp(100px,15vw,300px)]
 				md:px-[clamp(50px,5vw,100px)] 
 				min-[900px]:flex-row 
@@ -81,25 +99,37 @@ export default function About() {
 				</div>
 				
 			</section>
-			<section id="call-to-action"
-			className="my-5">
-				<div className="flex flex-row justify-evenly">
-					<div className="flex flex-col w-2/3 space-y-5 my-5 italic">
-						<h1 className="font-bold italic text-black text-5xl">JOIN US</h1>
-						<p className="">
-						What makes SASE different from UB's other engineering and cultural clubs is
-						that we don't ask you to pick a lane. Engineering clubs on campus tend to focus
-						purely on technical growth, and cultural clubs tend to focus purely on
-						community, SASE does both, at the same time, in the same room. What sets us
-						apart is our ability to combine career development with a welcoming and
-						inclusive environment where members can celebrate Asian cultures, form genuine
-						friendships, and learn from one another. Whether you're attending your first
-						networking event, exploring career opportunities, or looking to meet
-						like-minded students, SASE offers a place to grow both professionally and
-						personally.
+			<section id="call-to-action" className="my-5">
+				<div className="flex items-center align-middle 
+				lg:px-[clamp(100px,15vw,300px)]
+				md:px-[clamp(50px,5vw,100px)] 
+				min-[900px]:flex-row 
+				p-10 flex-col gap-x-[10%] gap-y-10">
+					<div className="flex flex-col gap-y-5">
+						<h1 className="font-serif-kaisei font-bold text-sase-light-blue-400 text-5xl w-fit whitespace-nowrap">Join Us</h1>
+						<p className="font-sans-zenkaku text-lg">
+							What makes SASE different from UB's other engineering and cultural clubs is
+							that we don't ask you to pick a lane. Engineering clubs on campus tend to focus
+							purely on technical growth, and cultural clubs tend to focus purely on
+							community, SASE does both, at the same time, in the same room. What sets us
+							apart is our ability to combine career development with a welcoming and
+							inclusive environment where members can celebrate Asian cultures, form genuine
+							friendships, and learn from one another. Whether you're attending your first
+							networking event, exploring career opportunities, or looking to meet
+							like-minded students, SASE offers a place to grow both professionally and
+							personally.
 						</p>
 					</div>
-					<div className="bg-red-500 w-100 h-80">image</div>
+					<img
+						src="/Events/NightEboard.webp"
+						alt="Night E-Board Picture"
+						className="object-cover object-[100%_0%] w-100 h-80 rounded-xl"
+					/>
+					{/* <img
+						src="/background/SASE Logo.png"
+						alt="SASE Logo"
+						className="w-28 h-28 object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.7)]"
+					/>	 */}
 				</div>
 			</section>
 		</>
