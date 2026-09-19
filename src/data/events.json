@@ -4,27 +4,63 @@
         "name":"event",
         "date": "date",
         "time":"time",
-        "location":"place"
+        "location":"place",
+        "photo": null
     }, 
     {
         "id":1,
         "name":"Welcome to SASE",
         "date": "2026-08-27",
         "time":"7:00 PM",
-        "location":"SU 145"
+        "location":"SU 145",
+        "photo": null
     }, 
     {
         "id":2,
         "name":"SASE Welcome to tech",
         "date": "2026-09-03",
         "time":"6:00 PM",
-        "location":"SU 215"
+        "location":"SU 215",
+        "photo": null
     },
     {
         "id":3,             
-        "name":"SASE Olympics",
-        "date": "2026-09-10",
+        "name":"SHPE x SASE Cake by the Ocean",
+        "date": "2026-09-12",
+        "time":"",
+        "location":"Bennett Beach",
+        "photo": null
+    },
+    {
+        "id":4, 
+        "name":"APO x SASE Pixel Perfect Blanket Making",
+        "date": "2026-09-16",
         "time":"6:00 PM",
-        "location":"Knox 20"
+        "location":"NSC 222",
+        "photo": "/Upcoming Events/APO X SASE Perfect Blanket Making Service.png"
+    },
+    {
+        "id":5,             
+        "name":"CSA x SASE Mid Autumn Festival",
+        "date": "2026-09-22",
+        "time":"6:00 PM",
+        "location":"SU 145",
+        "photo": "/Upcoming Events/Mid-Autumn Festival.png"
+    },
+    {
+        "id":6,             
+        "name":"SASE Hiking",
+        "date": "2026-09-26",
+        "time":"",
+        "location":"Zoar Valley",
+        "photo": null
+    },
+    {
+        "id":7,             
+        "name":"SASE Nationals",
+        "date": "2026-10-01",
+        "time":"",
+        "location":"Seattle, WA",
+        "photo": "/Upcoming Events/SASE Nationals.jpg"
     }
 ]
