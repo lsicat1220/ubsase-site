@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-      - main
-      - final-touches
   workflow_dispatch:
 
 permissions:
