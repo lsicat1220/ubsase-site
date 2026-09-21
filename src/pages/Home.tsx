@@ -8,7 +8,7 @@ export default function Home() {
 	return (
 		<>
 			<section className="text-white italic">
-				<div className="bg-[url(/public/p/lnygroup.JPG)] bg-cover py-10 px-10 w-fill h-150 flex items-end justify-start">
+				<div className="bg-[url(/public/p/lnygroup.webp)] bg-cover py-10 px-10 w-fill h-150 flex items-end justify-start">
 					{/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
 					<div 
 						className="text-white h-fit w-fit text-shadow-lg/60"

@@ -139,7 +139,7 @@ function PopupCard({ member, isSmall, isOpen, dir = 'above' }: { member: Member;
   );
 }
 
-import phone from "../../public/background/leadershipphonesmall.png"
+import phone from "../../public/background/leadershipphone.webp"
 import logo from "../../public/background/SASE Logo.png"
 export default function LeadershipSection() {
   const [view, setView] = useState<BoardView>('default');
