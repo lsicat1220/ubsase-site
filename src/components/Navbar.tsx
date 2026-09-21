@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from '../assets/sase-logo/logo-main.svg'
+import sase_logo from '../assets/sase-logo/sase-stacked.png'
+import ub_logo from '../assets/ub-logo.jpg'
 
 export default function Navbar() {
     const [navbarIsOpen, setNavbarVisibility] = useState<boolean>(false);
@@ -17,13 +18,18 @@ export default function Navbar() {
     return (
         <>
             <nav className="z-50 fixed w-full flex flex-row justify-between items-center bg-white shadow-sm border-b-4 border-black px-4">
-                <Link onClick={closeNavbar} to="/">
-                    <img
-                        src={logo}
-                        className="h-14 m-2"
-                        alt="UB Sase Logo"
-                    />
-                </Link>
+                    <Link className="flex flex-row grid-cols-3 justify-center items-center my-4 ml-4 gap-x-3" onClick={closeNavbar} to="/">
+                        <img
+                            src={sase_logo}
+                            alt="Sase Logo"
+                            className="h-12"
+                        />
+                        <img
+                            src={ub_logo}
+                            alt="UB Logo"
+                            className="h-12"
+                        />
+                    </Link>
 
                 <div className="hidden md:flex flex-row items-center space-x-1 text-lg font-black italic uppercase">
                     {navLinks.map(({ label, to }) => (
