@@ -100,14 +100,17 @@ function PhotoColumn({ photos }: { photos: string[] }) {
       }}
 			className="md:w-1/4"
     >
-      {photos.map((src, i) => (
-        <img
-          key={`${i}-${src}`}
-          src={src}
-          alt={`Event photo ${i + 1}`}
-					className="rounded-2xl"
-        />
-      ))}
+      {photos.map((src, i) => {
+				const path = `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`;
+				return (
+					<img
+						key={`${i}-${src}`}
+						src={path}
+						alt={`Event photo ${i + 1}`}
+						className="rounded-2xl"
+					/>
+				);
+			})}
     </div>
   );
 }
