@@ -140,6 +140,7 @@ function PopupCard({ member, isSmall, isOpen, dir = 'above' }: { member: Member;
 }
 
 import phone from "../../public/background/leadershipphone.png"
+import logo from "../../public/background/SASE Logo.png"
 export default function LeadershipSection() {
   const [view, setView] = useState<BoardView>('default');
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -325,7 +326,7 @@ export default function LeadershipSection() {
                 }}
               />
               <img
-                src="/background/SASE Logo.png"
+                src={logo}
                 alt="SASE Logo"
                 className="absolute w-28 h-28 max-w-none object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.7)] pointer-events-none"
                 style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
