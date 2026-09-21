@@ -36,19 +36,19 @@ interface Member {
 const TOP_LEADERSHIP: Member[] = [
   { id: 1, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/filler.png", role: "President" },
   { id: 2, name: "DEVON SUKDHEO", portrait: "/p/DEVON.jpg", interest: "/i/filler.png", role: "Vice President" },
-  { id: 3, name: "KARYNA", portrait: "/p/KARYNA.jpg", interest: "/i/filler.png", role: "Secretary" },
-  { id: 4, name: "VIVIAN", portrait: "/p/viv.webp", interest: "/i/filler.png", role: "Treasurer" },
+  { id: 3, name: "KARYNA TRINH", portrait: "/p/KARYNA.jpg", interest: "/i/filler.png", role: "Secretary" },
+  { id: 4, name: "VIVIAN LAM", portrait: "/p/viv.webp", interest: "/i/filler.png", role: "Treasurer" },
 ];
 
 const LOWER_BOARD: Member[] = [
-  { id: 5, name: "IVAN", portrait: "/p/IVAN.jpeg", interest: "/i/filler.png", role: "Videographer" },
+  { id: 5, name: "IVAN ZHENG", portrait: "/p/IVAN.jpeg", interest: "/i/filler.png", role: "Videographer" },
   { id: 6, name: "TOBEY NGUYEN", portrait: "/p/TOBEY.jpg", interest: "/i/filler.png", role: "Technical Director" },
   { id: 7, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/filler.png", role: "Technical Director" },
   { id: 8, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/filler.png", role: "Public Relations" },
-  { id: 9, name: "KRIS", portrait: "/p/KRIS.jpg", interest: "/i/filler.png", role: "Marketing" },
-  { id: 10, name: "SELENA", portrait: "/p/SELENA.jpg", interest: "/i/filler.png", role: "Marketing" },
+  { id: 9, name: "KRIS HUI", portrait: "/p/KRIS.jpg", interest: "/i/filler.png", role: "Marketing" },
+  { id: 10, name: "SELENA WANG", portrait: "/p/SELENA.jpg", interest: "/i/filler.png", role: "Marketing" },
   { id: 11, name: "YOSHITA", portrait: "/p/YOSHITA.jpg", interest: "/i/filler.png", role: "Cultural Chair" },
-  { id: 12, name: "ALINA", portrait: "/p/alina.jpg", interest: "/i/filler.png", role: "Events Coordinator" },
+  { id: 12, name: "ALINA TJON", portrait: "/p/alina.jpg", interest: "/i/filler.png", role: "Events Coordinator" },
   { id: 16, name: "LEVI", portrait: "/p/LEVI.jpg", interest: "/i/filler.png", role: "Committee Coordinator" },
 ];
 
@@ -126,6 +126,7 @@ export default function LeadershipSection() {
   const [activeId, setActiveId] = useState<number | null>(null);
   const frameRef = useRef<HTMLElement>(null);
   const [scale, setScale] = useState(1);
+	const [mobile, setMobile] = useState(false);
 
   const changeView = (v: BoardView) => {
     if (v !== 'default') window.scrollTo(0, 0);
@@ -151,7 +152,13 @@ export default function LeadershipSection() {
     if (!el) return;
     const update = () => {
       const { width, height } = el.getBoundingClientRect();
-      setScale(Math.min(width / DESIGN_W, height / DESIGN_H));
+			const isMobile = height > width;
+			setMobile(isMobile);
+			if (isMobile) {
+				setScale(0.9 * (height / DESIGN_H));
+			} else {
+				setScale(Math.max(width / DESIGN_W, height / DESIGN_H));
+			}
     };
     update();
     const ro = new ResizeObserver(update);
@@ -162,20 +169,20 @@ export default function LeadershipSection() {
   return (
     <section
       ref={frameRef}
-      className="w-full h-screen bg-white overflow-hidden flex items-center justify-center select-none"
+      className="w-full h-screen bg-blue-500 overflow-hidden flex items-center justify-center select-none"
     >
       <div
         className="relative shrink-0"
         style={{
           width: DESIGN_W,
           height: DESIGN_H,
-          transform: `scale(${scale * (view === 'default' ? 1 : ZOOM_SCALE)})`,
+          transform: `scale(${scale * ((view === 'default') || mobile ? 1 : ZOOM_SCALE)})`,
           transformOrigin: SCREEN_ORIGIN,
           transition: 'transform 0.7s cubic-bezier(0.65,0,0.35,1)',
         }}
       >
         <img
-          src="/background/SASE design new@2x.png"
+          src="/background/leadershipphone.png"
           alt="SASE Leadership"
           className="w-full h-full"
           draggable={false}
