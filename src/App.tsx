@@ -1,5 +1,5 @@
 //Remember to import the function of a site here, so that this file knows about it.
-import {HashRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Navbar from "./components/Navbar.tsx";
 import Home from "./pages/Home.tsx";
 //import Merch from "./pages/Merch.tsx";
@@ -16,7 +16,7 @@ function App() {
 	return (
 		<>
 			{/*This item handles the links of every page of the website*/}
-			<HashRouter>
+			<BrowserRouter>
 				<Navbar />
 				{/*You can imagine that the Routes item below gets replaced with the current url's page*/}
 				<main className="pt-[60px]">
@@ -29,7 +29,7 @@ function App() {
 						<Route path="/example" element={<Example />}/>
 					</Routes>
 				</main>
-			</HashRouter>
+			</BrowserRouter>
 			<Footer />
 		</>
 	)
