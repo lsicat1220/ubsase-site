@@ -4,7 +4,7 @@
 // 	color: string
 // }
 
-import { Button } from "../components/Button"
+// import { Button } from "../components/Button"
 
 // function AboutCard({title, desc, color}: AboutCardProps) {
 // 	return (
