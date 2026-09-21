@@ -80,21 +80,18 @@ export default function About() {
 						and connections needed to succeed both during college and beyond.
 					</p>
 				</div>	
-				<div id="pillars" className="grid grid-cols-1 min-[900px]:grid-cols-3 p-5 gap-5 justify-center items-center">
-					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-light-blue-500)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent)),url('/Events/DayEboard.webp')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
-						<h1 className="text-4xl font-serif-kaisei font-bold text-white text-shadow-solid">Professional<br/> Development</h1>
+				<div id="pillars" className="flex flex-col md:flex-row p-5 gap-5 justify-center items-center">
+					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-light-blue-500)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent)),url('/p/suitselevator.png')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
+						<h1 className="text-4xl font-bold font-serif-kaisei text-white text-shadow-solid">Professional<br/> Development</h1>
 						<p className="font-bold font-sans-zenkaku text-lg text-white s-text-shadow-solid">Prepare members for success in the global stem workforce through professional development and networking</p>
-						<Button txt="Grow More" link="/events"/>
 					</div>
 					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent)),url('/Events/SASEOly.webp')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
 						<h1 className="text-4xl font-serif-kaisei font-bold text-white text-shadow-solid">Cultural<br/>Awareness</h1>
 						<p className="font-bold font-sans-zenkaku text-lg text-white s-text-shadow-solid">Celebrate and promote diversity across college campuses and modern workplaces</p>
-						<Button txt="Learn More" link="/events"/>
 					</div>
 					<div className={"bg-cover bg-center bg-[linear-gradient(color-mix(in_srgb,var(--color-sase-dark-blue-400)_70%,transparent),color-mix(in_srgb,var(--color-sase-dark-blue-700)_70%,transparent)),url('/Events/LTNight.webp')] w-full justify-center text-center flex flex-col p-5 space-y-2 items-center min-h-100 md:h-150 rounded-xl"}>
 						<h1 className="text-4xl font-serif-kaisei font-bold text-white text-shadow-solid">Community<br/>Services</h1>
 						<p className="font-bold font-sans-zenkaku text-lg text-white s-text-shadow-solid">Provide a supportive network and encourage local community service</p>
-						<Button txt="Contribute More" link="/events"/>
 					</div>
 				</div>
 				

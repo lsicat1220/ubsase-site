@@ -8,21 +8,25 @@ export default function Events() {
 	const leftPhotos = listPhotos.filter((_, index) => index % 2 === 0);
 	const rightPhotos = listPhotos.filter((_, index) => index % 2 !== 0);
 	return (
-		<div style= {{display: 'flex', justifyContent: 'center', alignItems: 'center',flexWrap: "wrap",
-        gap: 24, padding: 24, minHeight: '100vh'}}>
+		<>
+		<div className="w-screen px-10 md:px-50 py-10">
+		<h1 className="font-serif-kaisei text-6xl my-5 text-sase-light-blue-500">Our Events</h1>
+		<p className="font-sans-zenkaku text-2xl">Here you will find a calendar of our events for the month as well as the posters for the most recent events</p>
+		</div>
+		<div className='flex flex-col md:flex-row items-center bg-blue-200 md:h-screen w-screen px-10 md:px-20 lg:px-50 space-x justify-evenly p-10 space-x-10 space-y-10'>
 			<PhotoColumn photos={leftPhotos} />
-			<div style={{position: "relative", flex: "1 1 800px", maxWidth: 800, height: 600,}}>
+			<div className='w-full h-100 md:w-2/3 md:h-3/4'>
 				<iframe
 				title="UBSASE events calendar"
+				className='rounded-2xl'
 				src="https://calendar.google.com/calendar/embed?src=ubsase2%40gmail.com&ctz=America%2FNew_York"
 				style={{ border: 0, width: "100%", height: "100%" }}
 				/>
-				<CustomCalendar />
 			</div>
-
 			<PhotoColumn photos={rightPhotos} />
 
 		</div>
+		</>
 	)
 }
 
@@ -94,19 +98,15 @@ function PhotoColumn({ photos }: { photos: string[] }) {
         display: "flex",
         flexDirection: "column",
         gap: 16,
-        flex: "0 0 200px",
       }}
+			className="md:w-1/4"
     >
       {photos.map((src, i) => (
         <img
           key={`${i}-${src}`}
           src={src}
           alt={`Event photo ${i + 1}`}
-          style={{
-            width: "100%",
-            height: "auto",
-            borderRadius: 8,
-          }}
+					className="rounded-2xl"
         />
       ))}
     </div>

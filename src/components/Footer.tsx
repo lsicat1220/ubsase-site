@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="border-t-4 border-black w-fill shadow-md">
+		<footer className="border-t-4 border-black w-fill shadow-md font-sans-zenkaku">
 			<div className="text-gray-500 flex h-30 items-center justify-center space-x-5">
 				<div className="mx-12">
 					<h2>Contact us:</h2>
@@ -8,13 +8,13 @@ export default function Footer() {
 					Email: <a href="mailto:ubsase2@gmail.com"><u>ubsase2@gmail.com</u></a> <br/>
 					</p>
 				</div>
-				<a href="https://discord.gg/Pg2zGyK3Gy">
-					<div className="bg-sase-blue w-12 h-12 rounded-full flex items-center justify-center">
+				<a href="https://discord.gg/APWCsSJyWU">
+					<div className="bg-sase-light-blue-500 w-12 h-12 flex items-center justify-center rounded-2xl">
 						<img src="/src/assets/discord-white-icon.svg" className="h-5"/>
 					</div>
 				</a>
 				<a href="https://instagram.com/ubsase">
-					<div className="bg-sase-blue w-12 h-12 rounded-full flex items-center justify-center">
+					<div className="bg-sase-light-blue-500 w-12 h-12 flex items-center justify-center rounded-2xl">
 						<img src="/src/assets/insta-logo.svg" className="h-7"/>
 					</div>
 				</a>
