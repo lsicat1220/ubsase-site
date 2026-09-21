@@ -1,3 +1,5 @@
+import discord from "../assets/discord-white-icon.svg"
+import instagram from "../assets/insta-logo.svg"
 export default function Footer() {
 	return (
 		<footer className="border-t-4 border-black w-fill shadow-md font-sans-zenkaku">
@@ -10,12 +12,12 @@ export default function Footer() {
 				</div>
 				<a href="https://discord.gg/APWCsSJyWU">
 					<div className="bg-sase-light-blue-500 w-12 h-12 flex items-center justify-center rounded-2xl">
-						<img src="/src/assets/discord-white-icon.svg" className="h-5"/>
+						<img src={instagram} className="h-5"/>
 					</div>
 				</a>
 				<a href="https://instagram.com/ubsase">
 					<div className="bg-sase-light-blue-500 w-12 h-12 flex items-center justify-center rounded-2xl">
-						<img src="/src/assets/insta-logo.svg" className="h-7"/>
+						<img src={discord} className="h-5"/>
 					</div>
 				</a>
 				{/* <img src="/src/assets/sase-logo/logo.svg" className="mx-5 h-20"/> */}

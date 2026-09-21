@@ -33,8 +33,10 @@ interface Member {
   role?: string;
 }
 
+import hongyi from "../../public/p/hongyi.jpg"
+
 const TOP_LEADERSHIP: Member[] = [
-  { id: 1, name: "HONG YI YANG", portrait: "/p/hongyi.jpg", interest: "/i/filler.png", role: "President" },
+  { id: 1, name: "HONG YI YANG", portrait: hongyi, interest: "/i/filler.png", role: "President" },
   { id: 2, name: "DEVON SUKDHEO", portrait: "/p/DEVON.jpg", interest: "/i/filler.png", role: "Vice President" },
   { id: 3, name: "KARYNA TRINH", portrait: "/p/KARYNA.jpg", interest: "/i/filler.png", role: "Secretary" },
   { id: 4, name: "VIVIAN LAM", portrait: "/p/viv.webp", interest: "/i/filler.png", role: "Treasurer" },
