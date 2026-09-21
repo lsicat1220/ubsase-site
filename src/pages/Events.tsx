@@ -1,6 +1,5 @@
 import allEvents from '../data/events.json'
 const today = new Date();
-import { useEffect, useState } from 'react';
 
 // created with the help of claude
 export default function Events() {
@@ -55,39 +54,39 @@ function eventPhotos() {
 
 // like 98% claude
 // requires a custom calendar image in public/calendar/ folder with the name MM-YYYY.png
-function CustomCalendar() {
-	const monthYear = `${String(today.getMonth() + 1).padStart(2, "0")}-${today.getFullYear()}`;
-	const src = `/calendar/${monthYear}.png`;
-	const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
-
-	useEffect(() => {
-		const img = new Image();
-		img.onload = () => setLoadedSrc(src); // only called later, when the image loads
-		img.src = src;
-
-		return () => {
-		img.onload = null;
-		};
-	}, [src]);
-
-	// Show the overlay only if the image that loaded is the one we want right now.
-	if (loadedSrc !== src) return null;
-
-	return (
-		<img
-			src={src}
-			alt="Calendar for this month"
-			style={{
-				position: "absolute",
-				inset: 0,
-				width: "100%",
-				height: "100%",
-				objectFit: "contain",
-				background: "#fff", 
-			}}
-		/>
-	);
-}
+// function CustomCalendar() {
+// 	const monthYear = `${String(today.getMonth() + 1).padStart(2, "0")}-${today.getFullYear()}`;
+// 	const src = `/calendar/${monthYear}.png`;
+// 	const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+//
+// 	useEffect(() => {
+// 		const img = new Image();
+// 		img.onload = () => setLoadedSrc(src); // only called later, when the image loads
+// 		img.src = src;
+//
+// 		return () => {
+// 		img.onload = null;
+// 		};
+// 	}, [src]);
+//
+// 	// Show the overlay only if the image that loaded is the one we want right now.
+// 	if (loadedSrc !== src) return null;
+//
+// 	return (
+// 		<img
+// 			src={src}
+// 			alt="Calendar for this month"
+// 			style={{
+// 				position: "absolute",
+// 				inset: 0,
+// 				width: "100%",
+// 				height: "100%",
+// 				objectFit: "contain",
+// 				background: "#fff", 
+// 			}}
+// 		/>
+// 	);
+// }
 
 // fully generated with claude, then debugged
 function PhotoColumn({ photos }: { photos: string[] }) {
@@ -101,14 +100,17 @@ function PhotoColumn({ photos }: { photos: string[] }) {
       }}
 			className="md:w-1/4"
     >
-      {photos.map((src, i) => (
-        <img
-          key={`${i}-${src}`}
-          src={src}
-          alt={`Event photo ${i + 1}`}
-					className="rounded-2xl"
-        />
-      ))}
+      {photos.map((src, i) => {
+				const path = `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`;
+				return (
+					<img
+						key={`${i}-${src}`}
+						src={path}
+						alt={`Event photo ${i + 1}`}
+						className="rounded-2xl"
+					/>
+				);
+			})}
     </div>
   );
 }

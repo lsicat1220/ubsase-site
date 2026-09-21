@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from '../assets/sase-logo/logo-main.svg'
 
 export default function Navbar() {
     const [navbarIsOpen, setNavbarVisibility] = useState<boolean>(false);
@@ -18,7 +19,7 @@ export default function Navbar() {
             <nav className="z-50 fixed w-full flex flex-row justify-between items-center bg-white shadow-sm border-b-4 border-black px-4">
                 <Link onClick={closeNavbar} to="/">
                     <img
-                        src="/src/assets/sase-logo/logo-main.svg"
+                        src={logo}
                         className="h-14 m-2"
                         alt="UB Sase Logo"
                     />

@@ -1,6 +1,9 @@
 // import Carousel from "./../components/Home/Carousel";
 // import HomePageActivities from "./../data/homePageActivities.json" with {type: "json"};
 //WANT TO DO: Make the background a scrolling compilation of event photos
+//
+
+import video from "../../public/videos/video.mp4"
 export default function Home() {
 	return (
 		<>
@@ -36,7 +39,7 @@ export default function Home() {
 					muted
 					loop
 					playsInline
-					src="/videos/video.mp4"
+					src={video}
 					className="w-3/4 md:w-1/3 rounded-2xl"
 				/>
 			</section>
