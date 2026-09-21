@@ -1,6 +1,5 @@
 import allEvents from '../data/events.json'
 const today = new Date();
-import { useEffect, useState } from 'react';
 
 // created with the help of claude
 export default function Events() {

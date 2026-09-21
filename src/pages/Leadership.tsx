@@ -34,32 +34,48 @@ interface Member {
 }
 
 import hongyi from "../../public/p/hongyi.jpg"
+import devon from "../../public/p/DEVON.jpg"
+import karyna from "../../public/p/KARYNA.jpg"
+import vivian from "../../public/p/viv.webp"
+import ivan from  "../../public/p/IVAN.jpeg"
+import lorenzo from  "../../public/p/lorenzo.jpg"
+import tobey from  "../../public/p/TOBEY.jpg"
+import ishraq from "../../public/p/ishraq.jpg"
+import kris from  "../../public/p/KRIS.jpg"
+import selena from  "../../public/p/SELENA.jpg"
+import yoshita from  "../../public/p/YOSHITA.jpg"
+import alina from  "../../public/p/alina.jpg"
+import levi from "../../public/p/LEVI.jpg"
+import brendan from "../../public/p/brendan.jpg"
+import chandra from "../../public/p/chandra.jpg"
+import jessica from "../../public/p/jessica.jpg"
 
 const TOP_LEADERSHIP: Member[] = [
   { id: 1, name: "HONG YI YANG", portrait: hongyi, interest: "/i/filler.png", role: "President" },
-  { id: 2, name: "DEVON SUKDHEO", portrait: "/p/DEVON.jpg", interest: "/i/filler.png", role: "Vice President" },
-  { id: 3, name: "KARYNA TRINH", portrait: "/p/KARYNA.jpg", interest: "/i/filler.png", role: "Secretary" },
-  { id: 4, name: "VIVIAN LAM", portrait: "/p/viv.webp", interest: "/i/filler.png", role: "Treasurer" },
+  { id: 2, name: "DEVON SUKDHEO", portrait: devon, interest: "/i/filler.png", role: "Vice President" },
+  { id: 3, name: "KARYNA TRINH", portrait:karyna, interest: "/i/filler.png", role: "Secretary" },
+  { id: 4, name: "VIVIAN LAM", portrait:vivian, interest: "/i/filler.png", role: "Treasurer" },
 ];
 
 const LOWER_BOARD: Member[] = [
-  { id: 5, name: "IVAN ZHENG", portrait: "/p/IVAN.jpeg", interest: "/i/filler.png", role: "Videographer" },
-  { id: 6, name: "TOBEY NGUYEN", portrait: "/p/TOBEY.jpg", interest: "/i/filler.png", role: "Technical Director" },
-  { id: 7, name: "LORENZO SICAT", portrait: "/p/lorenzo.jpg", interest: "/i/filler.png", role: "Technical Director" },
-  { id: 8, name: "ISHRAQ MAHMUD", portrait: "/p/ishraq.jpg", interest: "/i/filler.png", role: "Public Relations" },
-  { id: 9, name: "KRIS HUI", portrait: "/p/KRIS.jpg", interest: "/i/filler.png", role: "Marketing" },
-  { id: 10, name: "SELENA WANG", portrait: "/p/SELENA.jpg", interest: "/i/filler.png", role: "Marketing" },
-  { id: 11, name: "YOSHITA", portrait: "/p/YOSHITA.jpg", interest: "/i/filler.png", role: "Cultural Chair" },
-  { id: 12, name: "ALINA TJON", portrait: "/p/alina.jpg", interest: "/i/filler.png", role: "Events Coordinator" },
-  { id: 16, name: "LEVI", portrait: "/p/LEVI.jpg", interest: "/i/filler.png", role: "Committee Coordinator" },
+  { id: 5, name: "IVAN ZHENG", portrait:ivan, interest: "/i/filler.png", role: "Videographer" },
+  { id: 6, name: "TOBEY NGUYEN", portrait:tobey, interest: "/i/filler.png", role: "Technical Director" },
+  { id: 7, name: "LORENZO SICAT", portrait: lorenzo, interest: "/i/filler.png", role: "Technical Director" },
+  { id: 8, name: "ISHRAQ MAHMUD", portrait:ishraq, interest: "/i/filler.png", role: "Public Relations" },
+  { id: 9, name: "KRIS HUI", portrait:kris, interest: "/i/filler.png", role: "Marketing" },
+  { id: 10, name: "SELENA WANG", portrait:selena, interest: "/i/filler.png", role: "Marketing" },
+  { id: 11, name: "YOSHITA", portrait:yoshita, interest: "/i/filler.png", role: "Cultural Chair" },
+  { id: 12, name: "ALINA TJON", portrait:alina, interest: "/i/filler.png", role: "Events Coordinator" },
+  { id: 16, name: "LEVI CHEN", portrait:levi, interest: "/i/filler.png", role: "Committee Coordinator" },
 ];
 
 const SENIOR_ADVISORS: Member[] = [
-  { id: 13, name: "BRENDAN ELLIOT", portrait: "/p/brendan.jpg", interest: "/i/filler.png" },
-  { id: 14, name: "CHANDRA TIEN", portrait: "/p/chandra.jpg", interest: "/i/filler.png" },
-  { id: 15, name: "JESSICA KIM", portrait: "/p/jessica.jpg", interest: "/i/filler.png" },
+  { id: 13, name: "BRENDAN ELLIOT", portrait:brendan, interest: "/i/filler.png" },
+  { id: 14, name: "CHANDRA TIEN", portrait:chandra, interest: "/i/filler.png" },
+  { id: 15, name: "JESSICA KIM", portrait:jessica, interest: "/i/filler.png" },
 ];
 
+import back from "../../public/background/Back Button.png"
 function BackButton({ onClick }: { onClick: () => void }) {
   const scale = BACK_BTN_DISPLAY_W / BACK_BTN_CROP.w;
   return (
@@ -75,7 +91,7 @@ function BackButton({ onClick }: { onClick: () => void }) {
     >
       <div className="relative w-full h-full overflow-hidden">
         <img
-          src="/background/Back Button.png"
+          src={back}
           alt="Back"
           className="absolute max-w-none"
           style={{
@@ -123,6 +139,7 @@ function PopupCard({ member, isSmall, isOpen, dir = 'above' }: { member: Member;
   );
 }
 
+import phone from "../../public/background/leadershipphone.png"
 export default function LeadershipSection() {
   const [view, setView] = useState<BoardView>('default');
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -184,7 +201,7 @@ export default function LeadershipSection() {
         }}
       >
         <img
-          src="/background/leadershipphone.png"
+          src={phone}
           alt="SASE Leadership"
           className="w-full h-full"
           draggable={false}
