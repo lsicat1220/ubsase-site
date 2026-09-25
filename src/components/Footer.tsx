@@ -10,12 +10,12 @@ export default function Footer() {
 					Email: <a href="mailto:ubsase2@gmail.com"><u>ubsase2@gmail.com</u></a> <br/>
 					</p>
 				</div>
-				<a href="https://discord.gg/APWCsSJyWU">
+				<a href="https://instagram.com/ubsase">
 					<div className="bg-sase-light-blue-500 w-12 h-12 flex items-center justify-center rounded-2xl">
 						<img src={instagram} className="h-5"/>
 					</div>
 				</a>
-				<a href="https://instagram.com/ubsase">
+				<a href="https://discord.gg/APWCsSJyWU">
 					<div className="bg-sase-light-blue-500 w-12 h-12 flex items-center justify-center rounded-2xl">
 						<img src={discord} className="h-5"/>
 					</div>
