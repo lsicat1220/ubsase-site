@@ -21,12 +21,12 @@ export default function Navbar() {
                     <Link className="flex flex-row grid-cols-3 justify-center items-center my-4 ml-4 gap-x-3" onClick={closeNavbar} to="/">
                         <img
                             src={sase_logo}
-                            alt="Sase Logo"
+                            alt="UB SASE"
                             className="h-12"
                         />
                         <img
                             src={ub_logo}
-                            alt="UB Logo"
+                            alt="University at Buffalo"
                             className="h-12"
                         />
                     </Link>
