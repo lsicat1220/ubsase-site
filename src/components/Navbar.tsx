@@ -21,7 +21,7 @@ export default function Navbar() {
                     <img
                         src={logo}
                         className="h-14 m-2"
-                        alt="UB Sase Logo"
+                        alt="UB Sase"
                     />
                 </Link>
 
